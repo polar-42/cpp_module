@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   phoneBook.hpp                                      :+:      :+:    :+:   */
+/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fle-tolg  <fle-tolg@student.42angouleme    +#+  +:+       +#+        */
+/*   By: fle-tolg <fle-tolg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 16:00:34 by fle-tolg          #+#    #+#             */
-/*   Updated: 2023/02/03 15:37:59 by fle-tolg         ###   ########.fr       */
+/*   Updated: 2023/02/09 15:43:00 by fle-tolg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,16 @@
 # include <iostream>
 # include <string>
 # include <cctype>
+# include <cstring>
+# include <cstdlib>
 # include "Contact.hpp"
 
 class PhoneBook
 {
 	private:
-		Contact	contacts[8];
-		int		sizePhoneBook;
+		Contact	_contacts[8];
+		void	printContacts();
+		int		_sizePhoneBook;
 
 	public:
 		void	addContact();

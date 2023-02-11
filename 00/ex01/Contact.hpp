@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Contact.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fle-tolg  <fle-tolg@student.42angouleme    +#+  +:+       +#+        */
+/*   By: fle-tolg <fle-tolg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 13:42:01 by fle-tolg          #+#    #+#             */
-/*   Updated: 2023/02/03 16:38:28 by fle-tolg         ###   ########.fr       */
+/*   Updated: 2023/02/09 15:49:42 by fle-tolg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,12 @@
 class Contact
 {
 	private:
-		//int		index;
-		std::string	firstName;
-		std::string	lastName;
-		std::string	nickname;
-		std::string	phoneNumber;
-		std::string	secret;
+		int			_index;
+		std::string	_firstName;
+		std::string	_lastName;
+		std::string	_nickname;
+		std::string	_phoneNumber;
+		std::string	_secret;
 
 	public:
 		std::string	getFirstName();
@@ -29,7 +29,8 @@ class Contact
 		std::string	getNickname();
 		std::string	getPhoneNumber();
 		std::string	getSecret();
-		void		createContact();
+		int			getIndex();
+		void		createContact(int index);
 		void		printContact();
 		void		printHeigtChar(std::string str, int size);
 };

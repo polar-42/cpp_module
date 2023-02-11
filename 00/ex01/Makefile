@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: fle-tolg  <fle-tolg@student.42angouleme    +#+  +:+       +#+         #
+#    By: fle-tolg <fle-tolg@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/28 18:47:40 by fle-tolg          #+#    #+#              #
-#    Updated: 2023/02/03 16:12:08 by fle-tolg         ###   ########.fr        #
+#    Updated: 2023/02/11 11:57:56 by fle-tolg         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,10 +19,9 @@ END 	=	\033[00m
 NAME	=	phoneBook
 
 CC 		= 	c++
-CFLAGS 	= 	-Wextra -Wall -Werror -std=c++98
+CFLAGS 	= 	-g -Wextra -Wall -Werror -std=c++98
 MK		=	mkdir -p
 RM 		=	rm -rf
-SLP		=	spleep
 
 SRC = 	main.cpp\
 		PhoneBook.cpp\
@@ -33,11 +32,9 @@ OBJ_DIR	=	objs
 
 all : $(NAME)
 
-compilation:
-	@printf "Compilation = ["
-
 $(OBJ_DIR)/%.o: %.cpp
 	@$(MK) $(@D)
+	@printf "\r                                                       \r"
 	@printf "\r${ORANGE}Compilation: ${END}$<${END}\r"
 	@$(CC) $(CFLAGS) -c $< -o $@
 

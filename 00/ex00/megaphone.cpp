@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   megaphone.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fle-tolg  <fle-tolg@student.42angouleme    +#+  +:+       +#+        */
+/*   By: fle-tolg <fle-tolg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 18:47:28 by fle-tolg          #+#    #+#             */
-/*   Updated: 2023/01/31 15:57:31 by fle-tolg         ###   ########.fr       */
+/*   Updated: 2023/02/07 14:31:42 by fle-tolg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,9 @@ int main(int argc, char **argv)
 	for (int i = 1; argv[i]; i++)
 	{
 		for (int y = 0; argv[i][y]; y++)
-		{
-			if (islower(argv[i][y]) == 1)
-				std::cout << (char)toupper(argv[i][y]);
-			else
-				std::cout << argv[i][y];
-		}
+			std::cout << (char)toupper(argv[i][y]);
+		std::cout << " ";
 	}
 	std::cout << std::endl;
+	return (0);
 }

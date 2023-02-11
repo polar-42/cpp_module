@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Contact.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fle-tolg  <fle-tolg@student.42angouleme    +#+  +:+       +#+        */
+/*   By: fle-tolg <fle-tolg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 13:41:20 by fle-tolg          #+#    #+#             */
-/*   Updated: 2023/02/03 16:54:27 by fle-tolg         ###   ########.fr       */
+/*   Updated: 2023/02/09 15:51:24 by fle-tolg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,69 +14,44 @@
 
 std::string	Contact::getFirstName()
 {
-	return (this->firstName);
+	return (this->_firstName);
 }
 
 std::string	Contact::getLastName()
 {
-	return (this->lastName);
+	return (this->_lastName);
 }
 
 std::string	Contact::getNickname()
 {
-	return (this->nickname);
+	return (this->_nickname);
 }
 
 std::string	Contact::getPhoneNumber()
 {
-	return (this->phoneNumber);
+	return (this->_phoneNumber);
 }
 
 std::string	Contact::getSecret()
 {
-	return (this->secret);
+	return (this->_secret);
 }
 
-void	Contact::printHeigtChar(std::string str, int size)
+int	Contact::getIndex()
 {
-	while (str.length() > 8)
-		str.pop_back();
-	if (str.length() == 8)
-	{
-		std::cout << str << ".";
-		size--;
-	}
-	else
-		std::cout << str;
-	int i = str.length();
-	while (i < size)
-	{
-		std::cout << " ";
-		i++;
-	}
+	return (this->_index + 1);
 }
 
 void	Contact::printContact()
 {
-	std::cout << "_____________________________________________________________________" << std::endl;
-	std::cout << "| First name | Last name | Nickname | Phone number | Darkest secret |" << std::endl;
-	{
-		std::cout << "| ";
-		printHeigtChar(getFirstName(), 10);
-		std::cout << " | ";
-		printHeigtChar(getLastName(), 9);
-		std::cout << " | ";
-		printHeigtChar(getNickname(), 8);
-		std::cout << " | ";
-		printHeigtChar(getPhoneNumber(), 12);
-		std::cout << " | ";
-		printHeigtChar(getSecret(), 14);
-		std::cout << " |" << std::endl;
-	}
-	std::cout << "⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺⎺" << std::endl;
+	std::cout << "First name: " << getFirstName() << std::endl;
+	std::cout << "Last name: " << getLastName() << std::endl;
+	std::cout << "Nickname: " << getNickname() << std::endl;
+	std::cout << "Phone number: " << getPhoneNumber() << std::endl;
+	std::cout << "Darkest Secret: " << getSecret() << std::endl;
 }
 
-void	Contact::createContact()
+void	Contact::createContact(int index)
 {
 	std::string	firstName;
 	std::string	lastName;
@@ -84,19 +59,45 @@ void	Contact::createContact()
 	std::string	phoneNumber;
 	std::string	secret;
 
-	std::cout << "Enter the first name: ";
-	std::getline(std::cin, firstName);
-	this->firstName = firstName;
-	std::cout << "Enter the last name: ";
-	std::getline(std::cin, lastName);
-	this->lastName = lastName;
-	std::cout << "Enter the nickname: ";
-	std::getline(std::cin, nickname);
-	this->nickname = nickname;
-	std::cout << "Enter the phone number: ";
-	std::getline(std::cin, phoneNumber);
-	this->phoneNumber = phoneNumber;
-	std::cout << "Enter the darkest secret: ";
-	std::getline(std::cin, secret);
-	this->secret = secret;
+	while (firstName.length() == 0)
+	{
+		std::cout << "Enter the first name: ";
+		std::getline(std::cin, firstName);
+		this->_firstName = firstName;
+		if (firstName.length() == 0)
+			std::cout << "Field can't be empty" << std::endl;
+	}
+	while (lastName.length() == 0)
+	{
+		std::cout << "Enter the last name: ";
+		std::getline(std::cin, lastName);
+		this->_lastName = lastName;
+		if (lastName.length() == 0)
+			std::cout << "Field can't be empty" << std::endl;
+	}
+	while (nickname.length() == 0)
+	{
+		std::cout << "Enter the nickname: ";
+		std::getline(std::cin, nickname);
+		this->_nickname = nickname;
+		if (nickname.length() == 0)
+			std::cout << "Field can't be empty" << std::endl;
+	}
+	while (phoneNumber.length() == 0)
+	{
+		std::cout << "Enter the phone number: ";
+		std::getline(std::cin, phoneNumber);
+		this->_phoneNumber = phoneNumber;
+		if (phoneNumber.length() == 0)
+			std::cout << "Field can't be empty" << std::endl;
+	}
+	while (secret.length() == 0)
+	{
+		std::cout << "Enter the darkest secret: ";
+		std::getline(std::cin, secret);
+		this->_secret = secret;
+		if (secret.length() == 0)
+			std::cout << "Field can't be empty" << std::endl;
+	}
+	this->_index = index;
 }
