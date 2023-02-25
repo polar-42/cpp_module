@@ -6,7 +6,7 @@
 /*   By: fle-tolg <fle-tolg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 13:42:37 by fle-tolg          #+#    #+#             */
-/*   Updated: 2023/02/25 12:50:48 by fle-tolg         ###   ########.fr       */
+/*   Updated: 2023/02/25 13:44:09 by fle-tolg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,6 @@ bool Fixed::operator!= (const Fixed &fixed)
 float Fixed::operator+(const Fixed &fixed)
 {
 	return (this->toFloat() + fixed.toFloat());
-	//return (*this);
 }
 
 float Fixed::operator-(const Fixed &fixed)
