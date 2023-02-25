@@ -1,34 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fle-tolg <fle-tolg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/14 13:34:29 by fle-tolg          #+#    #+#             */
-/*   Updated: 2023/02/19 15:42:57 by fle-tolg         ###   ########.fr       */
+/*   Created: 2023/02/17 14:29:52 by fle-tolg          #+#    #+#             */
+/*   Updated: 2023/02/18 12:37:01 by fle-tolg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIE_HPP
-# define ZOMBIE_HPP
+#include <Harl.hpp>
 
-# include <iostream>
-
-class Zombie
+int main(int argc, char **argv)
 {
-	public:
-		void	announce( void );
-		void	setName(std::string name);
+	if (argc != 2)
+	{
+		std::cerr << "harlFilter need one argument" << std::endl;
+		return (1);
+	}
 
-		Zombie();
-		~Zombie();
-
-	private:
-		std::string	_name;
-
-};
-
-Zombie*	zombieHorde( int N, std::string name );
-
-#endif
+	Harl		harl;
+	std::string	level(argv[1]);
+	harl.complain(level);
+}

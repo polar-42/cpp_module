@@ -6,7 +6,7 @@
 /*   By: fle-tolg <fle-tolg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 13:37:12 by fle-tolg          #+#    #+#             */
-/*   Updated: 2023/02/09 15:52:54 by fle-tolg         ###   ########.fr       */
+/*   Updated: 2023/02/18 15:47:54 by fle-tolg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,28 +17,18 @@ void	PhoneBook::updateSize(int index)
 	this->_sizePhoneBook = index;
 }
 
-static void	printTenChar(std::string str, int size)
+static void	printTenChar(std::string str)
 {
-	while (str.length() > 9)
-		str.erase(str.length() - 1);
-	if (str.length() == 9)
+	if (str.length() >= 9)
 	{
+		str.resize(9);
 		std::cout << str << ".";
-		size--;
 	}
 	else
-	{
-		int i = str.length();
-		while (i < size)
-		{
-			std::cout << " ";
-			i++;
-		}
-		std::cout << str;
-	}
+		std::cout << std::setw(10) << str;
 }
 
-void	PhoneBook::printContacts()
+void	PhoneBook::_printContacts()
 {
 	std::cout << " ______________________________________________ " << std::endl;
 	std::cout << "| Index | First name | Last  name | Nick  Name |" << std::endl;
@@ -46,11 +36,11 @@ void	PhoneBook::printContacts()
 	{
 		std::cout << "|     " << this->_contacts[i].getIndex();
 		std::cout << " | ";
-		printTenChar(this->_contacts[i].getFirstName(), 10);
+		printTenChar(this->_contacts[i].getFirstName());
 		std::cout << " | ";
-		printTenChar(this->_contacts[i].getLastName(), 10);
+		printTenChar(this->_contacts[i].getLastName());
 		std::cout << " | ";
-		printTenChar(this->_contacts[i].getNickname(), 10);
+		printTenChar(this->_contacts[i].getNickname());
 		std::cout << " |" << std::endl;
 	}
 	std::cout << "|_______|____________|____________|____________|" << std::endl;
@@ -65,10 +55,15 @@ void	PhoneBook::searchContact()
 		std::cout << "PhoneBook is empty" << std::endl;
 		return ;
 	}
-	this->printContacts();
+	this->_printContacts();
 	std::cout << "Which one do you prefer: ";
 	std::getline(std::cin, research);
-	if (atoi(research.c_str()) > this->_sizePhoneBook || atoi(research.c_str()) < 0)
+	if (std::cin.eof())
+	{
+		std::cout << std::endl;
+		exit(1);
+	}
+	if (atoi(research.c_str()) > this->_sizePhoneBook || atoi(research.c_str()) <= 0)
 	{
 		std::cout << "This is not a valid index" << std::endl;
 		return ;
@@ -91,5 +86,10 @@ void	PhoneBook::addContact()
 		this->_sizePhoneBook++;
 	}
 	else
-		this->_contacts[0].createContact(0);
+	{
+		this->_contacts[this->_oldestContact].createContact(this->_oldestContact);
+		this->_oldestContact++;
+		if (this->_oldestContact > 8)
+			this->_oldestContact = 0;
+	}
 }

@@ -6,16 +6,11 @@
 /*   By: fle-tolg <fle-tolg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 13:42:37 by fle-tolg          #+#    #+#             */
-/*   Updated: 2023/02/22 11:51:04 by fle-tolg         ###   ########.fr       */
+/*   Updated: 2023/02/23 14:38:47 by fle-tolg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <Fixed.hpp>
-
-	//float b = ((float)a / (float)(1 << 8)); //int to float
-	//int c = (int)(roundf(b * (1 << 8))); //float to int
-
-	//roundf
 
 Fixed::Fixed()
 {
@@ -32,7 +27,7 @@ Fixed::Fixed(const int i)
 Fixed::Fixed(const float i)
 {
 	std::cout << "Float constructor called" << std::endl;
-	this->_fixedPoint = i * (1 << this->_cFixedPoint);
+	this->_fixedPoint = roundf(i * (1 << this->_cFixedPoint));
 }
 
 Fixed::Fixed(const Fixed &fixed)

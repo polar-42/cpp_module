@@ -6,7 +6,7 @@
 /*   By: fle-tolg <fle-tolg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 13:43:24 by fle-tolg          #+#    #+#             */
-/*   Updated: 2023/02/22 16:11:47 by fle-tolg         ###   ########.fr       */
+/*   Updated: 2023/02/23 14:46:39 by fle-tolg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,21 @@ int main(void)
 {	Fixed a;
 	Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
 
-	std::cout << "1 = " << a << std::endl;
-	std::cout << "2 = " << ++a << std::endl;
-	std::cout << "3 = "  << a << std::endl;
-	std::cout << "4 = "  << a++ << std::endl;
-	std::cout << "5 = "  << a << std::endl;
+	std::cout << "a\t=\t" << a << std::endl;
+	std::cout << "++a\t=\t" << ++a << std::endl;
+	std::cout << "a\t=\t"  << a << std::endl;
+	std::cout << "a++\t=\t"  << a++ << std::endl;
+	std::cout << "a\t=\t"  << a << std::endl;
+	std::cout << "a--\t=\t"  << a-- << std::endl;
+	std::cout << "a\t=\t"  << a << std::endl;
+	std::cout << "--a\t=\t"  << --a << std::endl;
+	std::cout << "a\t=\t"  << a << std::endl;
 
-	std::cout << b << std::endl;
+	std::cout << "b\t= \t" << b << std::endl;
 
-	//std::cout << Fixed::max( a, b ) << std::endl;
+	std::cout << std::endl;
+	std::cout << "Fixed::min(a, b) = " << Fixed::min( a, b ) << std::endl;
+	std::cout << "Fixed::max(a, b) = " << Fixed::max( a, b ) << std::endl;
 
 	return 0;
 }

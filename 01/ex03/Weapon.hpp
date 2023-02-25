@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Weapon.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fle-tolg  <fle-tolg@student.42angouleme    +#+  +:+       +#+        */
+/*   By: fle-tolg <fle-tolg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 17:42:55 by fle-tolg          #+#    #+#             */
-/*   Updated: 2023/02/15 11:30:28 by fle-tolg         ###   ########.fr       */
+/*   Updated: 2023/02/16 13:04:20 by fle-tolg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@
 class Weapon
 {
 	private:
-		std::string	_name;
-		
+		std::string	_type;
+
 	public:
 		Weapon(std::string name);
 		Weapon();

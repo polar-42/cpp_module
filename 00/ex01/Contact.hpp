@@ -6,12 +6,20 @@
 /*   By: fle-tolg <fle-tolg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 13:42:01 by fle-tolg          #+#    #+#             */
-/*   Updated: 2023/02/09 15:49:42 by fle-tolg         ###   ########.fr       */
+/*   Updated: 2023/02/18 14:50:57 by fle-tolg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CONTACT_HPP
 # define CONTACT_HPP
+
+# include <iostream>
+# include <iomanip>
+# include <string>
+# include <cctype>
+# include <cstring>
+# include <cstdlib>
+# include <cstdio>
 
 class Contact
 {
@@ -32,7 +40,6 @@ class Contact
 		int			getIndex();
 		void		createContact(int index);
 		void		printContact();
-		void		printHeigtChar(std::string str, int size);
 };
 
 #endif

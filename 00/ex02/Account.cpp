@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Account.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fle-tolg  <fle-tolg@student.42angouleme    +#+  +:+       +#+        */
+/*   By: fle-tolg <fle-tolg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 16:00:49 by fle-tolg          #+#    #+#             */
-/*   Updated: 2023/02/14 10:17:48 by fle-tolg         ###   ########.fr       */
+/*   Updated: 2023/02/18 14:22:28 by fle-tolg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ bool	Account::makeWithdrawal(int withdrawal)
 		_totalNbWithdrawals++;
 		_totalAmount -= withdrawal;
 		std::cout << withdrawal << ";";
-		std::cout << this->_amount << ";";
+		std::cout << "amount:" << this->_amount << ";";
 		std::cout << "nb_withdrawals:" << _nbWithdrawals << std::endl;
 	}
 	return (true);
@@ -73,11 +73,12 @@ void	Account::makeDeposit(int deposit)
 
 void	Account::_displayTimestamp()
 {
-	timespec	t;
-	timespec_get(&t, TIME_UTC);
+    std::time_t t = std::time(NULL);
+	char	str[100];
 
 	std::cout << "[";
-	std::cout << t.tv_sec;
+	std::strftime(str, 100, "%Y%d%m_%H%M%S", std::localtime(&t));
+	std::cout << str;
 	std::cout << "] ";
 }
 
@@ -113,13 +114,13 @@ int	Account::getNbWithdrawals()
 Account::Account(int initial_deposit)
 {
 	_accountIndex = _nbAccounts;
-	_nbAccounts++;
 	_amount = initial_deposit;
 	_nbDeposits = 0;
 	_nbWithdrawals = 0;
 	Account::_totalAmount += initial_deposit;
 	_displayTimestamp();
 	std::cout << "index:" << this->_nbAccounts;
+	_nbAccounts++;
 	std::cout << ";amount:" << initial_deposit << ";";
 	std::cout << "created" << std::endl;
 }

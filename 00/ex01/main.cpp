@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fle-tolg  <fle-tolg@student.42angouleme    +#+  +:+       +#+        */
+/*   By: fle-tolg <fle-tolg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 15:59:28 by fle-tolg          #+#    #+#             */
-/*   Updated: 2023/02/03 15:55:25 by fle-tolg         ###   ########.fr       */
+/*   Updated: 2023/02/18 14:56:59 by fle-tolg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,11 @@ int	main(int argc, char **argv)
 			break ;
 		else if (action != "")
 			std::cout << action <<" isn't a valid action" << std::endl;
+		else if (std::cin.eof())
+		{
+			std::cout << std::endl;
+			break ;
+		}
 	}
 	return (0);
 }

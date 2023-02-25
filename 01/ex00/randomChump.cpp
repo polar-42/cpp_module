@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   randomChump.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fle-tolg  <fle-tolg@student.42angouleme    +#+  +:+       +#+        */
+/*   By: fle-tolg <fle-tolg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 13:53:55 by fle-tolg          #+#    #+#             */
-/*   Updated: 2023/02/14 17:05:31 by fle-tolg         ###   ########.fr       */
+/*   Updated: 2023/02/19 15:53:05 by fle-tolg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,5 +15,5 @@
 void	randomChump( std::string name )
 {
 	Zombie	zombie(name);
-	zombie.annouce();
+	zombie.announce();
 }

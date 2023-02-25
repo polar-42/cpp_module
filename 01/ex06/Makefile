@@ -6,7 +6,7 @@
 #    By: fle-tolg <fle-tolg@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/28 18:47:40 by fle-tolg          #+#    #+#              #
-#    Updated: 2023/02/19 16:34:32 by fle-tolg         ###   ########.fr        #
+#    Updated: 2023/02/17 17:49:18 by fle-tolg         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,17 +16,15 @@ BLUE 	=	\033[0;34m
 ORANGE	=	\033[38;5;202m
 END 	=	\033[00m
 
-NAME	=	zombie00
+NAME	=	harlFilter
 
 CC 		= 	c++
-CFLAGS 	= 	-g -Wextra -Wall -Werror -std=c++98
+CFLAGS 	= 	-g -Wextra -Wall -Werror -I. -std=c++98
 MK		=	mkdir -p
 RM 		=	rm -rf
 
-SRC = 	main.cpp		\
-		Zombie.cpp		\
-		newZombie.cpp	\
-		randomChump.cpp
+SRC = 	main.cpp	\
+		Harl.cpp
 
 OBJ 	=	$(addprefix objs/, $(SRC:%.cpp=%.o))
 OBJ_DIR	=	objs

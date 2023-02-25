@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Zombie.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fle-tolg  <fle-tolg@student.42angouleme    +#+  +:+       +#+        */
+/*   By: fle-tolg <fle-tolg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 13:34:29 by fle-tolg          #+#    #+#             */
-/*   Updated: 2023/02/14 16:57:07 by fle-tolg         ###   ########.fr       */
+/*   Updated: 2023/02/19 15:43:03 by fle-tolg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,20 +15,22 @@
 
 # include <iostream>
 
-void	randomChump( std::string name );
 
 class Zombie
 {
 	public:
-		void	annouce( void );
-		
+		void	announce( void );
+
 		Zombie( std::string name );
 		Zombie();
 		~Zombie();
-		
+
 	private:
 		std::string	_name;
 
 };
+
+void	randomChump( std::string name );
+Zombie*	newZombie( std::string name );
 
 #endif

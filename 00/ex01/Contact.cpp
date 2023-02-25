@@ -6,7 +6,7 @@
 /*   By: fle-tolg <fle-tolg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 13:41:20 by fle-tolg          #+#    #+#             */
-/*   Updated: 2023/02/09 15:51:24 by fle-tolg         ###   ########.fr       */
+/*   Updated: 2023/02/18 15:00:06 by fle-tolg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,11 @@ void	Contact::createContact(int index)
 		std::cout << "Enter the first name: ";
 		std::getline(std::cin, firstName);
 		this->_firstName = firstName;
+		if (std::cin.eof())
+		{
+			std::cout << std::endl;
+			exit(1);
+		}
 		if (firstName.length() == 0)
 			std::cout << "Field can't be empty" << std::endl;
 	}
@@ -72,6 +77,11 @@ void	Contact::createContact(int index)
 		std::cout << "Enter the last name: ";
 		std::getline(std::cin, lastName);
 		this->_lastName = lastName;
+		if (std::cin.eof())
+		{
+			std::cout << std::endl;
+			exit(1);
+		}
 		if (lastName.length() == 0)
 			std::cout << "Field can't be empty" << std::endl;
 	}
@@ -80,6 +90,11 @@ void	Contact::createContact(int index)
 		std::cout << "Enter the nickname: ";
 		std::getline(std::cin, nickname);
 		this->_nickname = nickname;
+		if (std::cin.eof())
+		{
+			std::cout << std::endl;
+			exit(1);
+		}
 		if (nickname.length() == 0)
 			std::cout << "Field can't be empty" << std::endl;
 	}
@@ -88,6 +103,11 @@ void	Contact::createContact(int index)
 		std::cout << "Enter the phone number: ";
 		std::getline(std::cin, phoneNumber);
 		this->_phoneNumber = phoneNumber;
+		if (std::cin.eof())
+		{
+			std::cout << std::endl;
+			exit(1);
+		}
 		if (phoneNumber.length() == 0)
 			std::cout << "Field can't be empty" << std::endl;
 	}
@@ -96,6 +116,11 @@ void	Contact::createContact(int index)
 		std::cout << "Enter the darkest secret: ";
 		std::getline(std::cin, secret);
 		this->_secret = secret;
+		if (std::cin.eof())
+		{
+			std::cout << std::endl;
+			exit(1);
+		}
 		if (secret.length() == 0)
 			std::cout << "Field can't be empty" << std::endl;
 	}

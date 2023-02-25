@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fle-tolg  <fle-tolg@student.42angouleme    +#+  +:+       +#+        */
+/*   By: fle-tolg <fle-tolg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 13:33:50 by fle-tolg          #+#    #+#             */
-/*   Updated: 2023/02/14 17:20:00 by fle-tolg         ###   ########.fr       */
+/*   Updated: 2023/02/20 15:48:30 by fle-tolg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ int	main(int argc, char **argv)
 
 	int n = 5;
 	Zombie*	horde = zombieHorde(n, "Zombies");
+	if (!horde)
+		return (1);
 	for (int i = 0; i < n; i++)
-	{
-		horde[i].annouce();
-	}
+		horde[i].announce();
 	delete [] horde;
 }

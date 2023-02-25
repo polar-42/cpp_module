@@ -1,34 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*   newSed.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fle-tolg <fle-tolg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/14 13:34:29 by fle-tolg          #+#    #+#             */
-/*   Updated: 2023/02/19 15:42:57 by fle-tolg         ###   ########.fr       */
+/*   Created: 2023/02/17 11:24:00 by fle-tolg          #+#    #+#             */
+/*   Updated: 2023/02/18 12:04:06 by fle-tolg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIE_HPP
-# define ZOMBIE_HPP
+#ifndef NOSED_HPP
+# define NOSED_HPP
 
+# include <iomanip>
 # include <iostream>
-
-class Zombie
-{
-	public:
-		void	announce( void );
-		void	setName(std::string name);
-
-		Zombie();
-		~Zombie();
-
-	private:
-		std::string	_name;
-
-};
-
-Zombie*	zombieHorde( int N, std::string name );
+# include <fstream>
+# include <string>
+# include <cstddef>
+# include <cstdlib>
 
 #endif

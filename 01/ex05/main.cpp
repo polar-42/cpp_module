@@ -1,22 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   newZombie.cpp                                      :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fle-tolg  <fle-tolg@student.42angouleme    +#+  +:+       +#+        */
+/*   By: fle-tolg <fle-tolg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/14 13:40:12 by fle-tolg          #+#    #+#             */
-/*   Updated: 2023/02/14 17:19:02 by fle-tolg         ###   ########.fr       */
+/*   Created: 2023/02/17 14:29:52 by fle-tolg          #+#    #+#             */
+/*   Updated: 2023/02/18 12:27:52 by fle-tolg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include <Harl.hpp>
 
-Zombie*	zombieHorde( int N, std::string name )
+int main(void)
 {
-	Zombie*	horde = new Zombie[N];
-	
-	for (int i = 0; i < N; i++)
-		horde[i].setName(name);
-	return (horde);
+	Harl		harl;
+
+	harl.complain("DEBUG");
+	harl.complain("INFO");
+	harl.complain("WARNING");
+	harl.complain("ERROR");
+	harl.complain("d");
 }
