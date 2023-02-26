@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fle-tolg <fle-tolg@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fle-tolg  <fle-tolg@student.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 13:43:24 by fle-tolg          #+#    #+#             */
-/*   Updated: 2023/02/25 13:41:19 by fle-tolg         ###   ########.fr       */
+/*   Updated: 2023/02/26 09:50:59 by fle-tolg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 
 int main(void)
 {
-	Point	a(5.0f, 6.5f);
-	Point	b(5.0f, 6.5f);
-	Point	c(5.0f, 6.5f);
-	Point	d(5.0f, 6.5f);
+	Point	a(0, 0);
+	Point	b(10, 30);
+	Point	c(20, 0);
+	Point	d(30, 15);
 
 	std::cout << std::boolalpha;
 	std::cout << "Is d in the a, b, c triangle == " << bsp(a, b, c, d) << std::endl;

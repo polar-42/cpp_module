@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Point.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fle-tolg <fle-tolg@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fle-tolg  <fle-tolg@student.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 12:43:58 by fle-tolg          #+#    #+#             */
-/*   Updated: 2023/02/25 13:32:05 by fle-tolg         ###   ########.fr       */
+/*   Updated: 2023/02/26 09:49:00 by fle-tolg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ Point & Point::operator= (const Point &point) // PAS BON !!
 {
 	if (this != &point)
 	{
-		//this->_x.setRawBits(point._x.getRawBits());
-		//this->_y = point._y;
+		(Fixed)this->_x = point.getX();
+		(Fixed)this->_y = point.getY();
 	}
 	return (*this);
 }
