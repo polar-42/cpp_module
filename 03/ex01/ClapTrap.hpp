@@ -6,7 +6,7 @@
 /*   By: fle-tolg  <fle-tolg@student.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 13:49:23 by fle-tolg          #+#    #+#             */
-/*   Updated: 2023/02/26 09:53:16 by fle-tolg         ###   ########.fr       */
+/*   Updated: 2023/02/26 10:42:30 by fle-tolg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 class ClapTrap
 {
-	private:
+	protected:
 		std::string 	_name;
 		unsigned int	_hitPoint;
 		unsigned int	_energyPoint;

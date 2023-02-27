@@ -6,7 +6,7 @@
 /*   By: fle-tolg  <fle-tolg@student.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 13:53:31 by fle-tolg          #+#    #+#             */
-/*   Updated: 2023/02/26 10:49:26 by fle-tolg         ###   ########.fr       */
+/*   Updated: 2023/02/26 10:49:22 by fle-tolg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 /*Constructors / Destructors*/
 ClapTrap::ClapTrap(std::string name)
 {
+	std::cout << "ClapTrap constructors is called by " << name << std::endl;
 	this->_name = name;
 	this->_attackDamage = 0;
 	this->_energyPoint = 10;
@@ -23,6 +24,7 @@ ClapTrap::ClapTrap(std::string name)
 
 ClapTrap::ClapTrap(const ClapTrap &clapTrap)
 {
+	std::cout << "ClapTrap copy constructors is called by " << clapTrap._name << std::endl;
 	this->_name = clapTrap._name;
 	this->_attackDamage = clapTrap._attackDamage;
 	this->_energyPoint = clapTrap._energyPoint;
@@ -31,6 +33,7 @@ ClapTrap::ClapTrap(const ClapTrap &clapTrap)
 
 ClapTrap & ClapTrap::operator= (const ClapTrap &clapTrap)
 {
+	std::cout << "ClapTrap copy assignemnt is called by " << clapTrap._name << std::endl;
 	if (this != &clapTrap)
 	{
 		this->_name = clapTrap._name;
@@ -43,7 +46,7 @@ ClapTrap & ClapTrap::operator= (const ClapTrap &clapTrap)
 
 ClapTrap::~ClapTrap()
 {
-
+	std::cout << "ClapTrap destructors is called by " << this->_name << std::endl;
 }
 
 /*Setters / Getters */
