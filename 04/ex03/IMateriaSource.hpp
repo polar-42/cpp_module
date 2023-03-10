@@ -1,31 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   FragTrap.hpp                                       :+:      :+:    :+:   */
+/*   IMateriaSource.hpp                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fle-tolg  <fle-tolg@student.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/26 10:50:56 by fle-tolg          #+#    #+#             */
-/*   Updated: 2023/02/27 12:57:09 by fle-tolg         ###   ########.fr       */
+/*   Created: 2023/02/28 15:53:42 by fle-tolg          #+#    #+#             */
+/*   Updated: 2023/02/28 16:47:57 by fle-tolg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <ClapTrap.hpp>
+#ifndef IMATERIASOURCE_HPP
+# define IMATERIASOURCE_HPP
 
-#ifndef FRAGTRAP_HPP
-# define FRAGTRAP_HPP
+# include <iostream>
+# include <MateriaSource.hpp>
 
-class FragTrap : public ClapTrap
+class IMateriaSource : public virtual MateriaSource
 {
-	private:
-		/* data */
+	protected:
+		std::string _type;
+		
 	public:
-		FragTrap(std::string name);
-		FragTrap(const FragTrap & fragTrap);
-		FragTrap & operator=(const FragTrap & fragTrap);
-		~FragTrap();
+		IMateriaSource();
+		IMateriaSource(const IMateriaSource & iMateriaSource);
+		IMateriaSource & operator=(const IMateriaSource & iMateriaSource);
+		~IMateriaSource();
 
-		void	highFivesGuys(void);
+		void	learnMateria();
 };
 
 #endif

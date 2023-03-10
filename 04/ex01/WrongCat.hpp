@@ -1,31 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   FragTrap.hpp                                       :+:      :+:    :+:   */
+/*   WrongCat.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fle-tolg  <fle-tolg@student.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/26 10:50:56 by fle-tolg          #+#    #+#             */
-/*   Updated: 2023/02/27 12:57:09 by fle-tolg         ###   ########.fr       */
+/*   Created: 2023/02/27 15:46:18 by fle-tolg          #+#    #+#             */
+/*   Updated: 2023/02/27 16:00:30 by fle-tolg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <ClapTrap.hpp>
 
-#ifndef FRAGTRAP_HPP
-# define FRAGTRAP_HPP
+#ifndef WRONGCAT_HPP
+# define WRONGCAT_HPP
 
-class FragTrap : public ClapTrap
+# include <WrongAnimal.hpp>
+
+class WrongCat : public WrongAnimal
 {
 	private:
-		/* data */
+		
 	public:
-		FragTrap(std::string name);
-		FragTrap(const FragTrap & fragTrap);
-		FragTrap & operator=(const FragTrap & fragTrap);
-		~FragTrap();
-
-		void	highFivesGuys(void);
+		WrongCat();
+		WrongCat(const WrongCat & wrongcat);
+		WrongCat& operator=(const WrongCat & wrongcat);
+		~WrongCat();
 };
 
 #endif

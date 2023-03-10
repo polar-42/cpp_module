@@ -6,13 +6,16 @@
 /*   By: fle-tolg  <fle-tolg@student.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/26 12:44:42 by fle-tolg          #+#    #+#             */
-/*   Updated: 2023/02/27 12:31:52 by fle-tolg         ###   ########.fr       */
+/*   Updated: 2023/02/27 12:59:16 by fle-tolg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <FragTrap.hpp>
 #include <ScavTrap.hpp>
 #include <ClapTrap.hpp>
+
+#ifndef DIAMONDTRAP_HPP
+# define DIAMONDTRAP_HPP
 
 class DiamondTrap : public ScavTrap, public FragTrap
 {
@@ -31,3 +34,5 @@ class DiamondTrap : public ScavTrap, public FragTrap
 		using ScavTrap::attack;
 		void	whoAmI(void);
 };
+
+#endif

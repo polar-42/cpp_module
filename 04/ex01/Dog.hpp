@@ -1,31 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   FragTrap.hpp                                       :+:      :+:    :+:   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fle-tolg  <fle-tolg@student.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/26 10:50:56 by fle-tolg          #+#    #+#             */
-/*   Updated: 2023/02/27 12:57:09 by fle-tolg         ###   ########.fr       */
+/*   Created: 2023/02/27 13:25:06 by fle-tolg          #+#    #+#             */
+/*   Updated: 2023/02/27 16:00:32 by fle-tolg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <ClapTrap.hpp>
+#ifndef DOG_HPP
+# define DOG_HPP
 
-#ifndef FRAGTRAP_HPP
-# define FRAGTRAP_HPP
+# include <Animal.hpp>
 
-class FragTrap : public ClapTrap
+class Dog : public Animal
 {
 	private:
-		/* data */
+		
 	public:
-		FragTrap(std::string name);
-		FragTrap(const FragTrap & fragTrap);
-		FragTrap & operator=(const FragTrap & fragTrap);
-		~FragTrap();
-
-		void	highFivesGuys(void);
+		Dog();
+		Dog(const Dog & dog);
+		Dog& operator=(const Dog & dog);
+		~Dog();
 };
 
 #endif

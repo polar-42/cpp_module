@@ -6,7 +6,7 @@
 #    By: fle-tolg  <fle-tolg@student.42angouleme    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/28 18:47:40 by fle-tolg          #+#    #+#              #
-#    Updated: 2023/02/27 16:15:55 by fle-tolg         ###   ########.fr        #
+#    Updated: 2023/02/28 16:01:08 by fle-tolg         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,19 +16,17 @@ BLUE 	=	\033[0;34m
 ORANGE	=	\033[38;5;202m
 END 	=	\033[00m
 
-NAME	=	ex00
+NAME	=	ex03
 
 CC 		= 	c++
 CFLAGS 	= 	-g -Wextra -Wall -Werror -Wshadow -Wno-shadow -I. -std=c++98
 MK		=	mkdir -p
 RM 		=	rm -rf
 
-SRC = 	main.cpp		\
-		Animal.cpp		\
-		Cat.cpp			\
-		Dog.cpp			\
-		WrongAnimal.cpp	\
-		WrongCat.cpp
+SRC = 	main.cpp			\
+		IMateriaSource.cpp	\
+		ICharacter.cpp		\
+		AMateria.cpp
 
 OBJ 	=	$(addprefix objs/, $(SRC:%.cpp=%.o))
 OBJ_DIR	=	objs

@@ -6,7 +6,7 @@
 #    By: fle-tolg  <fle-tolg@student.42angouleme    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/28 18:47:40 by fle-tolg          #+#    #+#              #
-#    Updated: 2023/02/26 11:04:04 by fle-tolg         ###   ########.fr        #
+#    Updated: 2023/02/27 12:57:51 by fle-tolg         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ BLUE 	=	\033[0;34m
 ORANGE	=	\033[38;5;202m
 END 	=	\033[00m
 
-NAME	=	ex03
+NAME	=	ex02
 
 CC 		= 	c++
 CFLAGS 	= 	-g -Wextra -Wall -Werror -I. -std=c++98

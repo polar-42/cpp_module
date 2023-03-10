@@ -6,11 +6,14 @@
 /*   By: fle-tolg  <fle-tolg@student.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/26 10:50:56 by fle-tolg          #+#    #+#             */
-/*   Updated: 2023/02/27 12:26:37 by fle-tolg         ###   ########.fr       */
+/*   Updated: 2023/02/27 13:00:40 by fle-tolg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <ClapTrap.hpp>
+
+#ifndef FRAGTRAP_HPP
+# define FRAGTRAP_HPP
 
 class FragTrap : public virtual ClapTrap
 {
@@ -24,3 +27,5 @@ class FragTrap : public virtual ClapTrap
 
 		void	highFivesGuys(void);
 };
+
+#endif

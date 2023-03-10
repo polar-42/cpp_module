@@ -1,31 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   FragTrap.hpp                                       :+:      :+:    :+:   */
+/*   MateriaSource.hpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fle-tolg  <fle-tolg@student.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/26 10:50:56 by fle-tolg          #+#    #+#             */
-/*   Updated: 2023/02/27 12:57:09 by fle-tolg         ###   ########.fr       */
+/*   Created: 2023/02/28 15:53:42 by fle-tolg          #+#    #+#             */
+/*   Updated: 2023/02/28 16:45:34 by fle-tolg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <ClapTrap.hpp>
+#ifndef MATERIASOURCE_HPP
+# define MATERIASOURCE_HPP
 
-#ifndef FRAGTRAP_HPP
-# define FRAGTRAP_HPP
+# include <iostream>
 
-class FragTrap : public ClapTrap
+class MateriaSource
 {
-	private:
-		/* data */
+	protected:
+		MateriaSource();
+		
 	public:
-		FragTrap(std::string name);
-		FragTrap(const FragTrap & fragTrap);
-		FragTrap & operator=(const FragTrap & fragTrap);
-		~FragTrap();
-
-		void	highFivesGuys(void);
+		MateriaSource(const MateriaSource & materiaSource);
+		MateriaSource & operator=(const MateriaSource & materiaSource);
+		~MateriaSource();
 };
 
 #endif
