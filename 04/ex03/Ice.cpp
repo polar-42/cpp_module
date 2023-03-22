@@ -1,30 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Brain.hpp                                          :+:      :+:    :+:   */
+/*   Ice.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fle-tolg <fle-tolg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/27 14:03:22 by fle-tolg          #+#    #+#             */
-/*   Updated: 2023/03/22 14:27:56 by fle-tolg         ###   ########.fr       */
+/*   Created: 2023/03/22 15:11:06 by fle-tolg          #+#    #+#             */
+/*   Updated: 2023/03/22 15:24:29 by fle-tolg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BRAIN_HPP
-# define BRAIN_HPP
+#include <Ice.hpp>
 
-#include <iostream>
-
-class Brain
+Ice::Ice() : AMateria("ice")
 {
-	private:
-		std::string	_ideas[100];
-
-	public:
-		Brain();
-		Brain(const Brain & brain);
-		Brain & operator=(const Brain & brain);
-		~Brain();
-};
-
-#endif
+	std::cout << "Ice constructor is called" << std::endl;
+}

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Brain.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fle-tolg  <fle-tolg@student.42angouleme    +#+  +:+       +#+        */
+/*   By: fle-tolg <fle-tolg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 14:05:04 by fle-tolg          #+#    #+#             */
-/*   Updated: 2023/02/27 16:00:23 by fle-tolg         ###   ########.fr       */
+/*   Updated: 2023/03/22 14:29:10 by fle-tolg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,23 +17,25 @@ Brain::Brain()
 	std::cout << "Brain constructor called" << std::endl;
 }
 
-Brain::Brain(const Brain & brain)
+Brain::Brain(const Brain & src)
 {
+	std::cout << "Brain copy constructor called" << std::endl;
 	for (int i = 0; i < 100; i++)
-		this->ideas[i] = brain.ideas[i];
+		this->_ideas[i] = src._ideas[i];
 }
 
 Brain & Brain::operator=(const Brain & brain)
 {
+	std::cout << "Brain copy assignement called" << std::endl;
 	if (this != &brain)
 	{
 		for (int i = 0; i < 100; i++)
-			this->ideas[i] = brain.ideas[i];
+			this->_ideas[i] = brain._ideas[i];
 	}
 	return (*this);
 }
 
 Brain::~Brain()
 {
-	std::cout << "Brain destructor called" << std::endl;	
+	std::cout << "Brain destructor called" << std::endl;
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fle-tolg  <fle-tolg@student.42angouleme    +#+  +:+       +#+        */
+/*   By: fle-tolg <fle-tolg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 12:49:31 by fle-tolg          #+#    #+#             */
-/*   Updated: 2023/02/27 16:26:10 by fle-tolg         ###   ########.fr       */
+/*   Updated: 2023/03/22 14:53:35 by fle-tolg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define ANIMAL_HPP
 
 #include <iostream>
+#include <Brain.hpp>
 
 class Animal
 {
@@ -22,12 +23,12 @@ class Animal
 		Animal();
 		Animal(const Animal & animal);
 		Animal& operator=(const Animal & animal);
-	
-	public:
-		~Animal();
 
-		std::string	getType() const;
-		void		makeSound() const ;
+	public:
+		virtual ~Animal();
+
+		std::string		getType() const;
+		virtual void	makeSound() const = 0;
 };
 
 #endif

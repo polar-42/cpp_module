@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fle-tolg  <fle-tolg@student.42angouleme    +#+  +:+       +#+        */
+/*   By: fle-tolg <fle-tolg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 12:49:31 by fle-tolg          #+#    #+#             */
-/*   Updated: 2023/02/27 15:40:11 by fle-tolg         ###   ########.fr       */
+/*   Updated: 2023/03/22 13:57:46 by fle-tolg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,15 @@ class Animal
 {
 	protected:
 		std::string _type;
-	
+
 	public:
 		Animal();
 		Animal(const Animal & animal);
 		Animal& operator=(const Animal & animal);
-		~Animal();
+		virtual ~Animal();
 
-		std::string	getType() const;
-		void		makeSound() const ;
+		std::string		getType() const;
+		virtual void	makeSound() const;
 };
 
 #endif

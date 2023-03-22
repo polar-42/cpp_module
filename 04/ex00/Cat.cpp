@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fle-tolg  <fle-tolg@student.42angouleme    +#+  +:+       +#+        */
+/*   By: fle-tolg <fle-tolg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 13:27:01 by fle-tolg          #+#    #+#             */
-/*   Updated: 2023/02/27 15:40:01 by fle-tolg         ###   ########.fr       */
+/*   Updated: 2023/03/22 13:47:31 by fle-tolg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,21 +18,26 @@ Cat::Cat()
 	this->Animal::_type = "cat";
 }
 
-Cat::Cat(const Cat & cat)
+Cat::Cat(const Cat& src) : Animal()
 {
 	std::cout << "Cat copy constructor is called" << std::endl;
-	this->Animal::_type = cat.Animal::_type;
+	this->Animal::_type = src.getType();
 }
 
-Cat& Cat::operator=(const Cat & cat)
+Cat& Cat::operator=(const Cat& src)
 {
 	std::cout << "Cat copy assignment is called" << std::endl;
-	if (this != &cat)
-		this->Animal::_type = cat.Animal::_type;
+	if (this != &src)
+		this->Animal::_type = src.Animal::_type;
 	return (*this);
 }
 
 Cat::~Cat()
 {
 	std::cout << "Cat destructor called" << std::endl;
+}
+
+void Cat::makeSound() const
+{
+	std::cout << "miaou";
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Animal.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fle-tolg  <fle-tolg@student.42angouleme    +#+  +:+       +#+        */
+/*   By: fle-tolg <fle-tolg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 13:07:48 by fle-tolg          #+#    #+#             */
-/*   Updated: 2023/02/27 16:00:22 by fle-tolg         ###   ########.fr       */
+/*   Updated: 2023/03/22 13:57:41 by fle-tolg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,17 +18,17 @@ Animal::Animal()
 	this->_type = "random animal";
 }
 
-Animal::Animal(const Animal & animal)
+Animal::Animal(const Animal & src)
 {
-	std::cout << "Animal copy constructor called, this is a " << animal._type << std::endl;
-	this->_type = animal._type;
+	std::cout << "Animal copy constructor called, this is a " << src._type << std::endl;
+	this->_type = src._type;
 }
 
-Animal & Animal::operator=(const Animal & animal)
+Animal & Animal::operator=(const Animal & src)
 {
-	std::cout << "Animal copy assignement called, this is a " << animal._type << std::endl;
-	if (this != &animal)
-		this->_type = animal._type;
+	std::cout << "Animal copy assignement called, this is a " << src._type << std::endl;
+	if (this != &src)
+		this->_type = src._type;
 	return (*this);
 }
 
@@ -44,10 +44,5 @@ std::string	Animal::getType() const
 
 void	Animal::makeSound() const
 {
-	if (this->_type == "cat")
-		std::cout << "meow";
-	else if (this->_type == "dog")
-		std::cout << "ouaf";
-	else
-		std::cout << "nothing I'm an random animal";
+	std::cout << "??? (sorry I'm an random animal)";
 }

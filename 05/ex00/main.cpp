@@ -1,30 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Brain.hpp                                          :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fle-tolg <fle-tolg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/27 14:03:22 by fle-tolg          #+#    #+#             */
-/*   Updated: 2023/03/22 14:27:56 by fle-tolg         ###   ########.fr       */
+/*   Created: 2023/03/20 12:58:48 by fle-tolg          #+#    #+#             */
+/*   Updated: 2023/03/20 14:32:40 by fle-tolg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BRAIN_HPP
-# define BRAIN_HPP
+#include <Bureaucrat.hpp>
 
-#include <iostream>
-
-class Brain
+int	main(void)
 {
-	private:
-		std::string	_ideas[100];
+	Bureaucrat *bureaucrat = new Bureaucrat("Bill", 50);
 
-	public:
-		Brain();
-		Brain(const Brain & brain);
-		Brain & operator=(const Brain & brain);
-		~Brain();
-};
+	std::cout << bureaucrat << std::endl;
 
-#endif
+	delete bureaucrat;
+}

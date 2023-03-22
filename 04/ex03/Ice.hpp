@@ -1,30 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Brain.hpp                                          :+:      :+:    :+:   */
+/*   Ice.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fle-tolg <fle-tolg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/27 14:03:22 by fle-tolg          #+#    #+#             */
-/*   Updated: 2023/03/22 14:27:56 by fle-tolg         ###   ########.fr       */
+/*   Created: 2023/03/22 15:10:41 by fle-tolg          #+#    #+#             */
+/*   Updated: 2023/03/22 15:23:27 by fle-tolg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BRAIN_HPP
-# define BRAIN_HPP
+#ifndef ICE_HPP
+# define ICE_HPP
 
-#include <iostream>
+#include <AMateria.hpp>
 
-class Brain
+class Ice : public AMateria
 {
 	private:
-		std::string	_ideas[100];
 
 	public:
-		Brain();
-		Brain(const Brain & brain);
-		Brain & operator=(const Brain & brain);
-		~Brain();
+		Ice();
+		Ice(const Ice &src);
+		Ice& operator=(const Ice &src);
+		~Ice();
+
+		AMateria* clone();
 };
 
 #endif

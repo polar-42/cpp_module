@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fle-tolg  <fle-tolg@student.42angouleme    +#+  +:+       +#+        */
+/*   By: fle-tolg <fle-tolg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 13:25:06 by fle-tolg          #+#    #+#             */
-/*   Updated: 2023/02/27 15:40:03 by fle-tolg         ###   ########.fr       */
+/*   Updated: 2023/03/22 11:09:23 by fle-tolg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,14 @@
 class Dog : public Animal
 {
 	private:
-		
+
 	public:
 		Dog();
-		Dog(const Dog & dog);
-		Dog& operator=(const Dog & dog);
+		Dog(const Dog & src);
+		Dog& operator=(const Dog & src);
 		~Dog();
+
+		void makeSound() const;
 };
 
 #endif

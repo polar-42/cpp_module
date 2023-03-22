@@ -44,10 +44,5 @@ std::string	WrongAnimal::getType() const
 
 void	WrongAnimal::makeSound() const
 {
-	if (this->_type == "cat")
-		std::cout << "ouaf";
-	else if (this->_type == "dog")
-		std::cout << "meow";
-	else
-		std::cout << "nothing I'm an random WrongAnimal";
+	std::cout << "??? (sorry I'm an random animal)";
 }

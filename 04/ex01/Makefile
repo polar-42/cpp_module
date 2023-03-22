@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: fle-tolg  <fle-tolg@student.42angouleme    +#+  +:+       +#+         #
+#    By: fle-tolg <fle-tolg@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/28 18:47:40 by fle-tolg          #+#    #+#              #
-#    Updated: 2023/02/27 16:15:43 by fle-tolg         ###   ########.fr        #
+#    Updated: 2023/03/22 14:27:14 by fle-tolg         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,9 +27,9 @@ SRC = 	main.cpp		\
 		Animal.cpp		\
 		Cat.cpp			\
 		Dog.cpp			\
-		Brain.cpp		\
 		WrongAnimal.cpp	\
-		WrongCat.cpp
+		WrongCat.cpp	\
+		Brain.cpp
 
 OBJ 	=	$(addprefix objs/, $(SRC:%.cpp=%.o))
 OBJ_DIR	=	objs

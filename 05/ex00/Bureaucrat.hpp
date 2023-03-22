@@ -1,30 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Brain.hpp                                          :+:      :+:    :+:   */
+/*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fle-tolg <fle-tolg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/27 14:03:22 by fle-tolg          #+#    #+#             */
-/*   Updated: 2023/03/22 14:27:56 by fle-tolg         ###   ########.fr       */
+/*   Created: 2023/03/20 12:50:51 by fle-tolg          #+#    #+#             */
+/*   Updated: 2023/03/20 14:31:17 by fle-tolg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BRAIN_HPP
-# define BRAIN_HPP
+#ifndef BUREAUCRAT_HPP
+# define BUREAUCRAT_HPP
 
 #include <iostream>
 
-class Brain
+class Bureaucrat
 {
 	private:
-		std::string	_ideas[100];
+		const std::string	_name;
+		int		_grade;
 
 	public:
-		Brain();
-		Brain(const Brain & brain);
-		Brain & operator=(const Brain & brain);
-		~Brain();
+		Bureaucrat(std::string name, int grade);
+		Bureaucrat(const Bureaucrat &src);
+		Bureaucrat& operator=(const Bureaucrat & src);
+		~Bureaucrat();
+
+		Bureaucrat& operator++();
+		Bureaucrat& operator--();
+		std::string getName() const;
+		int	getGrade() const;
 };
+
+std::ostream & operator<<(std::ostream &i, Bureaucrat const &src);
 
 #endif
