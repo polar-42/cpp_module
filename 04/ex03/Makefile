@@ -6,7 +6,7 @@
 #    By: fle-tolg <fle-tolg@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/28 18:47:40 by fle-tolg          #+#    #+#              #
-#    Updated: 2023/03/20 12:46:14 by fle-tolg         ###   ########.fr        #
+#    Updated: 2023/03/22 16:43:36 by fle-tolg         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,8 +24,6 @@ MK		=	mkdir -p
 RM 		=	rm -rf
 
 SRC = 	main.cpp			\
-		IMateriaSource.cpp	\
-		ICharacter.cpp		\
 		AMateria.cpp		\
 		Ice.cpp				\
 		Cure.cpp

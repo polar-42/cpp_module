@@ -6,7 +6,7 @@
 /*   By: fle-tolg <fle-tolg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 12:41:59 by fle-tolg          #+#    #+#             */
-/*   Updated: 2023/03/22 15:18:45 by fle-tolg         ###   ########.fr       */
+/*   Updated: 2023/03/22 16:27:42 by fle-tolg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define AMATERIA_HPP
 
 #include <iostream>
+#include <ICharacter.hpp>
 
 class AMateria
 {
