@@ -6,7 +6,7 @@
 /*   By: fle-tolg <fle-tolg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 13:27:01 by fle-tolg          #+#    #+#             */
-/*   Updated: 2023/03/22 16:04:09 by fle-tolg         ###   ########.fr       */
+/*   Updated: 2023/03/22 16:11:44 by fle-tolg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ Dog& Dog::operator=(const Dog &src)
 	if (this != &src)
 	{
 		this->Animal::_type = src.Animal::_type;
+		if (this->_brain)
+			delete this->_brain;
 		this->_brain = new Brain(*src._brain);
 	}
 	return (*this);

@@ -6,7 +6,7 @@
 /*   By: fle-tolg <fle-tolg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 13:05:33 by fle-tolg          #+#    #+#             */
-/*   Updated: 2023/03/22 14:49:11 by fle-tolg         ###   ########.fr       */
+/*   Updated: 2023/03/22 16:18:41 by fle-tolg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,25 @@ int main()
 		std::cout << std::endl;
 
 		delete dog2;
+	}
+	std::cout << std::endl;
+	{
+		Dog *dog = new Dog();
+		Dog *dog1 = new Dog();
+
+		*dog = *dog1;
+
+		std::cout << "dog do ";
+		dog->makeSound();
+		std::cout << std::endl;
+
+		delete dog;
+
+		std::cout << "dog1 do ";
+		dog1->makeSound();
+		std::cout << std::endl;
+
+		delete dog1;
 	}
 	std::cout << std::endl;
 	{
