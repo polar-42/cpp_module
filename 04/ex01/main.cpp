@@ -6,7 +6,7 @@
 /*   By: fle-tolg <fle-tolg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 13:05:33 by fle-tolg          #+#    #+#             */
-/*   Updated: 2023/03/22 16:18:41 by fle-tolg         ###   ########.fr       */
+/*   Updated: 2023/04/09 14:24:57 by fle-tolg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,66 +19,20 @@
 int main()
 {
 	{
-		const Animal* meta = new Animal();
-		const Animal* dog = new Dog();
-		const Animal* cat = new Cat();
-
-		std::cout << "dog is a " << dog->getType() << " and do ";
-		dog->makeSound();
-		std::cout << std::endl;
-		std::cout << "cat is a " << cat->getType() << " and do ";
-		cat->makeSound();
-		std::cout << std::endl;
-		std::cout << "meta is a " << meta->getType() << " and do ";
-		meta->makeSound();
-		std::cout << std::endl;
-
-		const Animal* meta2 = new Animal(*meta);
-
-		delete meta;
-		delete dog;
-		delete cat;
-
-		std::cout << "meta2 is a " << meta2->getType() << " and do ";
-		meta2->makeSound();
-		std::cout << std::endl;
-
-		delete meta2;
-	}
-	std::cout << std::endl;
-	{
-		const Dog *dog = new Dog();
-
-		std::cout << "dog is a " << dog->getType() << " and do ";
-		dog->makeSound();
-		std::cout << std::endl;
-
-		const Dog *dog2 = new Dog(*dog);
-
-		delete dog;
-
-		std::cout << "dog2 is a " << dog2->getType() << " and do ";
-		dog2->makeSound();
-		std::cout << std::endl;
-
-		delete dog2;
-	}
-	std::cout << std::endl;
-	{
 		Dog *dog = new Dog();
 		Dog *dog1 = new Dog();
 
-		*dog = *dog1;
+		for (int i = 0; i < 4; i++)
+			dog->setIdea("one", i);
+		for (int i = 0; i < 4; i++)
+			std::cout << "idea[" << i << "] = " << dog->getIdea(i) << std::endl;
 
-		std::cout << "dog do ";
-		dog->makeSound();
-		std::cout << std::endl;
+		*dog1 = *dog;
 
 		delete dog;
 
-		std::cout << "dog1 do ";
-		dog1->makeSound();
-		std::cout << std::endl;
+		for (int i = 0; i < 4; i++)
+			std::cout << "idea[" << i << "] = " << dog1->getIdea(i) << std::endl;
 
 		delete dog1;
 	}

@@ -6,16 +6,17 @@
 /*   By: fle-tolg <fle-tolg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 15:09:35 by fle-tolg          #+#    #+#             */
-/*   Updated: 2023/03/22 16:32:27 by fle-tolg         ###   ########.fr       */
+/*   Updated: 2023/04/11 10:11:39 by fle-tolg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CURE_HPP
 # define CURE_HPP
 
-#include <AMateria.hpp>
+# include <AMateria.hpp>
+# include <ICharacter.hpp>
 
-class Cure : public AMateria
+class Cure : public virtual AMateria
 {
 	private:
 
@@ -25,8 +26,8 @@ class Cure : public AMateria
 		Cure& operator=(const Cure &src);
 		~Cure();
 
-		AMateria*	clone();
-		void	use(ICharacter &target);
+		AMateria* clone() const;
+		void use(ICharacter& target);
 };
 
 #endif

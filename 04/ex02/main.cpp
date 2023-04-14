@@ -6,7 +6,7 @@
 /*   By: fle-tolg <fle-tolg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 13:05:33 by fle-tolg          #+#    #+#             */
-/*   Updated: 2023/03/22 14:53:51 by fle-tolg         ###   ########.fr       */
+/*   Updated: 2023/04/09 14:35:12 by fle-tolg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,21 +34,22 @@ int main()
 	}
 	std::cout << std::endl;
 	{
-		const Dog *dog = new Dog();
+		Dog *dog = new Dog();
+		Dog *dog1 = new Dog();
 
-		std::cout << "dog is a " << dog->getType() << " and do ";
-		dog->makeSound();
-		std::cout << std::endl;
+		for (int i = 0; i < 4; i++)
+			dog->setIdea("one", i);
+		for (int i = 0; i < 4; i++)
+			std::cout << "idea[" << i << "] = " << dog->getIdea(i) << std::endl;
 
-		const Dog *dog2 = new Dog(*dog);
+		*dog1 = *dog;
 
 		delete dog;
 
-		std::cout << "dog2 is a " << dog2->getType() << " and do ";
-		dog2->makeSound();
-		std::cout << std::endl;
+		for (int i = 0; i < 4; i++)
+			std::cout << "idea[" << i << "] = " << dog1->getIdea(i) << std::endl;
 
-		delete dog2;
+		delete dog1;
 	}
 
 	//	This is not possible:

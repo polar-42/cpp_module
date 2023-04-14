@@ -6,7 +6,7 @@
 /*   By: fle-tolg <fle-tolg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 13:27:01 by fle-tolg          #+#    #+#             */
-/*   Updated: 2023/03/22 13:47:31 by fle-tolg         ###   ########.fr       */
+/*   Updated: 2023/04/09 11:39:20 by fle-tolg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,14 @@ Cat::Cat()
 Cat::Cat(const Cat& src) : Animal()
 {
 	std::cout << "Cat copy constructor is called" << std::endl;
-	this->Animal::_type = src.getType();
+	*this = src;
 }
 
 Cat& Cat::operator=(const Cat& src)
 {
 	std::cout << "Cat copy assignment is called" << std::endl;
 	if (this != &src)
-		this->Animal::_type = src.Animal::_type;
+		this->Animal::_type = src.getType();
 	return (*this);
 }
 

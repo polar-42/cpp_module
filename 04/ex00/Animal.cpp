@@ -6,7 +6,7 @@
 /*   By: fle-tolg <fle-tolg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 13:07:48 by fle-tolg          #+#    #+#             */
-/*   Updated: 2023/03/22 13:57:41 by fle-tolg         ###   ########.fr       */
+/*   Updated: 2023/04/09 11:41:48 by fle-tolg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ Animal::Animal()
 Animal::Animal(const Animal & src)
 {
 	std::cout << "Animal copy constructor called, this is a " << src._type << std::endl;
-	this->_type = src._type;
+		*this = src;
 }
 
 Animal & Animal::operator=(const Animal & src)

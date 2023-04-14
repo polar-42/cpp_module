@@ -18,17 +18,17 @@ WrongAnimal::WrongAnimal()
 	this->_type = "random WrongAnimal";
 }
 
-WrongAnimal::WrongAnimal(const WrongAnimal & wrongAnimal)
+WrongAnimal::WrongAnimal(const WrongAnimal & src)
 {
-	std::cout << "WrongAnimal copy constructor called, this is a " << wrongAnimal._type << std::endl;
-	this->_type = wrongAnimal._type;
+	std::cout << "WrongAnimal copy constructor called, this is a " << src._type << std::endl;
+	*this = src;
 }
 
-WrongAnimal & WrongAnimal::operator=(const WrongAnimal & wrongAnimal)
+WrongAnimal & WrongAnimal::operator=(const WrongAnimal & src)
 {
-	std::cout << "WrongAnimal copy assignement called, this is a " << wrongAnimal._type << std::endl;
-	if (this != &wrongAnimal)
-		this->_type = wrongAnimal._type;
+	std::cout << "WrongAnimal copy assignement called, this is a " << src._type << std::endl;
+	if (this != &src)
+		this->_type = src._type;
 	return (*this);
 }
 
