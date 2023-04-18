@@ -6,51 +6,39 @@
 /*   By: fle-tolg  <fle-tolg@student.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 12:58:48 by fle-tolg          #+#    #+#             */
-/*   Updated: 2023/04/17 14:02:15 by fle-tolg         ###   ########.fr       */
+/*   Updated: 2023/04/18 15:05:57 by fle-tolg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <Bureaucrat.hpp>
+#include <Form.hpp>
 
 int	main(void)
 {
 	{
-		Bureaucrat *bureaucrat = new Bureaucrat("Bill", 50);
+		Bureaucrat *a = new Bureaucrat("Bill", 50);
+		Form *b = new Form("Form1", 100, 75);
 
-		std::cout << *bureaucrat << std::endl;
+		b->beSigned(*a);
 
-		delete bureaucrat;
+		delete a;
+		delete b;
 	}
 	std::cout << std::endl;
 	{
+		Bureaucrat *a = new Bureaucrat("Bill", 50);
+		Form *b = new Form("Form1", 45, 75);
+
 		try
 		{
-			Bureaucrat a = Bureaucrat("Bill", 250);
+			b->beSigned(*a);
 		}
-		catch (Bureaucrat::GradeTooHighException &e)
+		catch(Form::GradeTooLowException &e)
 		{
 			std::cout << e.what() << std::endl;
 		}
-	}
-	std::cout << std::endl;
-	{
-		try
-		{
-			Bureaucrat a = Bureaucrat("Bill", -250);
-		}
-		catch (Bureaucrat::GradeTooLowException &e)
-		{
-			std::cout << e.what() << std::endl;
-		}
-	}
-	{
-		try
-		{
-			Bureaucrat a = Bureaucrat("Bill", 50);
-		}
-		catch (Bureaucrat::GradeTooLowException &e)
-		{
-			std::cout << e.what() << std::endl;
-		}
+		
+		delete a;
+		delete b;
 	}
 }

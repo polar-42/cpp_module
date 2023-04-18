@@ -6,7 +6,7 @@
 /*   By: fle-tolg  <fle-tolg@student.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 13:00:04 by fle-tolg          #+#    #+#             */
-/*   Updated: 2023/04/18 14:23:33 by fle-tolg         ###   ########.fr       */
+/*   Updated: 2023/04/18 15:02:29 by fle-tolg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,19 @@ std::string Bureaucrat::getName() const
 int Bureaucrat::getGrade() const
 {
 	return (_grade);
+}
+
+void Bureaucrat::signForm(Form& form)
+{
+	if (form.isSigned() == 1)
+		std::cout << getName() << " signed " << form.getName() << std::endl;
+	if (form.isSigned() == 0)
+	{
+		std::cout << getName() << " couldn't sign " << form.getName() <<
+		" because " << std::endl;
+		if (form.getGradeToSign() > getGrade())
+			std::cout << "grade is too low" << std::endl;
+	}
 }
 
 std::ostream & operator<<(std::ostream &i, Bureaucrat const &src)
