@@ -6,7 +6,7 @@
 /*   By: fle-tolg  <fle-tolg@student.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 14:06:25 by fle-tolg          #+#    #+#             */
-/*   Updated: 2023/04/18 15:05:17 by fle-tolg         ###   ########.fr       */
+/*   Updated: 2023/04/18 15:15:23 by fle-tolg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ class Form
 
 	public:
 		Form();
-
 		Form(std::string _name, int gradeToSign, int gradeToExecute);
 		Form(const Form &src);
 		Form& operator=(const Form &src);
