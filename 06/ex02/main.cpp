@@ -5,47 +5,23 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: fle-tolg <fle-tolg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/20 12:58:48 by fle-tolg          #+#    #+#             */
-/*   Updated: 2023/05/01 15:38:00 by fle-tolg         ###   ########.fr       */
+/*   Created: 2023/04/25 10:56:00 by fle-tolg          #+#    #+#             */
+/*   Updated: 2023/05/01 16:36:51 by fle-tolg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <Bureaucrat.hpp>
-#include <Form.hpp>
+#include <Base.hpp>
 
-int	main(void)
+int	main()
 {
-	{
-		try
-		{
-			Bureaucrat *a = new Bureaucrat("Bill", 50);
-			Form *b = new Form("Form_one", 100, 75);
+	Base *base = Base::generate();
 
-			a->signForm(*b);
-
-			delete a;
-			delete b;
-		}
-		catch(const std::exception& e)
-		{
-			std::cerr << e.what() << '\n';
-		}
-	}
+	std::cout << "base is a ";
+	base->identify(base);
 	std::cout << std::endl;
-	{
-		try
-		{
-			Bureaucrat *a = new Bureaucrat("Bill", 50);
-			Form *b = new Form("Form_two", 45, 75);
+	std::cout << "base is a ";
+	base->identify(*base);
+	std::cout << std::endl;
 
-			a->signForm(*b);
-
-			delete a;
-			delete b;
-		}
-		catch(const std::exception& e)
-		{
-			std::cerr << e.what() << '\n';
-		}
-	}
+	delete base;
 }

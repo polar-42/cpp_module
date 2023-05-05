@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fle-tolg  <fle-tolg@student.42angouleme    +#+  +:+       +#+        */
+/*   By: fle-tolg <fle-tolg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 12:58:48 by fle-tolg          #+#    #+#             */
-/*   Updated: 2023/04/17 14:02:15 by fle-tolg         ###   ########.fr       */
+/*   Updated: 2023/04/24 14:06:53 by fle-tolg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,12 @@ int	main(void)
 			std::cout << e.what() << std::endl;
 		}
 	}
+	std::cout << std::endl;
 	{
 		try
 		{
 			Bureaucrat a = Bureaucrat("Bill", 50);
+			std::cout << a << std::endl;
 		}
 		catch (Bureaucrat::GradeTooLowException &e)
 		{

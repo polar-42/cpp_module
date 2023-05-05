@@ -5,47 +5,29 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: fle-tolg <fle-tolg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/20 12:58:48 by fle-tolg          #+#    #+#             */
-/*   Updated: 2023/05/01 15:38:00 by fle-tolg         ###   ########.fr       */
+/*   Created: 2023/04/30 13:10:23 by fle-tolg          #+#    #+#             */
+/*   Updated: 2023/05/01 14:51:31 by fle-tolg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <Bureaucrat.hpp>
-#include <Form.hpp>
+#include <PmergeMe.hpp>
 
-int	main(void)
+int main(int argc, char **argv)
 {
+	if (argc < 2)
 	{
-		try
-		{
-			Bureaucrat *a = new Bureaucrat("Bill", 50);
-			Form *b = new Form("Form_one", 100, 75);
-
-			a->signForm(*b);
-
-			delete a;
-			delete b;
-		}
-		catch(const std::exception& e)
-		{
-			std::cerr << e.what() << '\n';
-		}
+		std::cout << "The program take numbers in arg" << std::endl;
+		return (1);
 	}
-	std::cout << std::endl;
+
+	try
 	{
-		try
-		{
-			Bureaucrat *a = new Bureaucrat("Bill", 50);
-			Form *b = new Form("Form_two", 45, 75);
-
-			a->signForm(*b);
-
-			delete a;
-			delete b;
-		}
-		catch(const std::exception& e)
-		{
-			std::cerr << e.what() << '\n';
-		}
+		PmergeMe p = PmergeMe(argv);
+		p.showResult();
 	}
+	catch(const std::exception& e)
+	{
+		return (1);
+	}
+
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fle-tolg  <fle-tolg@student.42angouleme    +#+  +:+       +#+        */
+/*   By: fle-tolg <fle-tolg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 13:00:04 by fle-tolg          #+#    #+#             */
-/*   Updated: 2023/04/18 15:02:29 by fle-tolg         ###   ########.fr       */
+/*   Updated: 2023/05/01 15:06:32 by fle-tolg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name), _grade(grade)
 			throw Bureaucrat::GradeTooLowException();
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat &src) : _name(src.getName())
+Bureaucrat::Bureaucrat(const Bureaucrat &src)
 {
 	*this = src;
 }
@@ -60,13 +60,22 @@ int Bureaucrat::getGrade() const
 
 void Bureaucrat::signForm(Form& form)
 {
-	if (form.isSigned() == 1)
+	try
+	{
+		form.beSigned(*this);
+	}
+	catch (Form::GradeTooLowException &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+
+	if (form.isSigned() == true)
 		std::cout << getName() << " signed " << form.getName() << std::endl;
-	if (form.isSigned() == 0)
+	if (form.isSigned() == false)
 	{
 		std::cout << getName() << " couldn't sign " << form.getName() <<
-		" because " << std::endl;
-		if (form.getGradeToSign() > getGrade())
+		" because ";
+		if (form.getGradeToSign() < getGrade())
 			std::cout << "grade is too low" << std::endl;
 	}
 }

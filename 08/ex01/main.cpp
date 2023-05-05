@@ -5,47 +5,52 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: fle-tolg <fle-tolg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/20 12:58:48 by fle-tolg          #+#    #+#             */
-/*   Updated: 2023/05/01 15:38:00 by fle-tolg         ###   ########.fr       */
+/*   Created: 2023/04/27 11:09:40 by fle-tolg          #+#    #+#             */
+/*   Updated: 2023/04/27 12:19:47 by fle-tolg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <Bureaucrat.hpp>
-#include <Form.hpp>
+#include <Span.hpp>
 
-int	main(void)
+int main()
 {
 	{
 		try
 		{
-			Bureaucrat *a = new Bureaucrat("Bill", 50);
-			Form *b = new Form("Form_one", 100, 75);
+			Span sp = Span(20);
 
-			a->signForm(*b);
+			sp.addNumber(5);
+			sp.addNumber(3);
+			sp.addNumber(17);
+			sp.addNumber(9);
+			sp.addNumber(11);
+			sp.addNumber(200);
+			sp.addNumber(-200);
 
-			delete a;
-			delete b;
+			std::cout << sp.shortestSpan() << std::endl;
+			std::cout << sp.longestSpan() << std::endl;
 		}
 		catch(const std::exception& e)
 		{
 			std::cerr << e.what() << '\n';
 		}
 	}
-	std::cout << std::endl;
 	{
 		try
 		{
-			Bureaucrat *a = new Bureaucrat("Bill", 50);
-			Form *b = new Form("Form_two", 45, 75);
+			Span sp = Span(20000);
 
-			a->signForm(*b);
+			sp.addNumbers(10000, 5);
 
-			delete a;
-			delete b;
+			std::cout << sp.shortestSpan() << std::endl;
+			std::cout << sp.longestSpan() << std::endl;
 		}
 		catch(const std::exception& e)
 		{
 			std::cerr << e.what() << '\n';
 		}
+
 	}
+
+	return (0);
 }

@@ -5,47 +5,33 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: fle-tolg <fle-tolg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/20 12:58:48 by fle-tolg          #+#    #+#             */
-/*   Updated: 2023/05/01 15:38:00 by fle-tolg         ###   ########.fr       */
+/*   Created: 2023/04/27 10:45:21 by fle-tolg          #+#    #+#             */
+/*   Updated: 2023/04/27 11:10:24 by fle-tolg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <Bureaucrat.hpp>
-#include <Form.hpp>
+#include <easyfind.hpp>
 
-int	main(void)
+int	main()
 {
+	std::vector<int> myVector;
+
+	for (int i = 0; i < 50; i++)
+		myVector.push_back(i);
+
+	try
 	{
-		try
-		{
-			Bureaucrat *a = new Bureaucrat("Bill", 50);
-			Form *b = new Form("Form_one", 100, 75);
-
-			a->signForm(*b);
-
-			delete a;
-			delete b;
-		}
-		catch(const std::exception& e)
-		{
-			std::cerr << e.what() << '\n';
-		}
+		std::cout << std::boolalpha << "try to find 25 = " << easyfind(myVector, 25)
+			<< std::endl;
+		std::cout << std::boolalpha << "try to find 49 = " << easyfind(myVector, 49)
+			<< std::endl;
+		std::cout << std::boolalpha << "try to find 65 = " << easyfind(myVector, 65)
+			<< std::endl;
 	}
-	std::cout << std::endl;
+	catch (std::exception &e)
 	{
-		try
-		{
-			Bureaucrat *a = new Bureaucrat("Bill", 50);
-			Form *b = new Form("Form_two", 45, 75);
-
-			a->signForm(*b);
-
-			delete a;
-			delete b;
-		}
-		catch(const std::exception& e)
-		{
-			std::cerr << e.what() << '\n';
-		}
+		std::cout << e.what() << std::endl;
 	}
+
+	return (0);
 }

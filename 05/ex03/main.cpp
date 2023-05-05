@@ -6,7 +6,7 @@
 /*   By: fle-tolg <fle-tolg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 12:58:48 by fle-tolg          #+#    #+#             */
-/*   Updated: 2023/05/01 15:39:35 by fle-tolg         ###   ########.fr       */
+/*   Updated: 2023/05/01 15:35:18 by fle-tolg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,60 +15,55 @@
 #include <PresidentialPardonForm.hpp>
 #include <RobotomyRequestForm.hpp>
 #include <ShrubberyCreationForm.hpp>
+#include <Intern.hpp>
 
 int	main(void)
 {
     {
-        try
-        {
-            AForm *form = new PresidentialPardonForm("Lolo");
-            Bureaucrat *b = new Bureaucrat("Bill", 3);
+        Intern *intern = new Intern();
+        Bureaucrat *b = new Bureaucrat("Bill", 3);
+        AForm *form = intern->makeForm("robotomy request", "Lolo");
 
+        if (form)
+        {
             b->signForm(*form);
             b->executeForm(*form);
-
             delete form;
-            delete b;
         }
-        catch(Bureaucrat::GradeTooHighException& e)
-        {
-            std::cerr << e.what() << '\n';
-        }
+
+        delete intern;
+        delete b;
     }
     std::cout << std::endl;
     {
-        try
-        {
-            AForm *form = new RobotomyRequestForm("Lolo");
-            Bureaucrat *b = new Bureaucrat("Bill", 3);
+        Intern *intern = new Intern();
+        Bureaucrat *b = new Bureaucrat("Bill", 3);
+        AForm *form = intern->makeForm("presidential pardon", "Coco");
 
+        if (form)
+        {
             b->signForm(*form);
             b->executeForm(*form);
-
             delete form;
-            delete b;
         }
-        catch(const std::exception& e)
-        {
-            std::cerr << e.what() << '\n';
-        }
+
+        delete intern;
+        delete b;
     }
     std::cout << std::endl;
     {
-        try
-        {
-            AForm *form = new ShrubberyCreationForm("Polo");
-            Bureaucrat *b = new Bureaucrat("Bill", 3);
+        Intern *intern = new Intern();
+        Bureaucrat *b = new Bureaucrat("Bill", 3);
+        AForm *form = intern->makeForm("shrubbery creation", "Toto");
 
+        if (form)
+        {
             b->signForm(*form);
             b->executeForm(*form);
-
             delete form;
-            delete b;
         }
-        catch(const std::exception& e)
-        {
-            std::cerr << e.what() << '\n';
-        }
+
+        delete intern;
+        delete b;
     }
 }

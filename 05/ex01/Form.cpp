@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fle-tolg  <fle-tolg@student.42angouleme    +#+  +:+       +#+        */
+/*   By: fle-tolg <fle-tolg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 14:21:29 by fle-tolg          #+#    #+#             */
-/*   Updated: 2023/04/18 15:31:57 by fle-tolg         ###   ########.fr       */
+/*   Updated: 2023/05/01 15:10:04 by fle-tolg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,28 @@
 Form::Form() : _name("no_name"), _signed(false), _gradeToSign(1), _gradeToExecute(1) {}
 
 Form::Form(std::string name, int gradeToSign, int gradeToExecute) : _name(name),
-	_signed(0), _gradeToSign(gradeToSign), _gradeToExecute(gradeToExecute) {}
+	_signed(0), _gradeToSign(gradeToSign), _gradeToExecute(gradeToExecute)
+{
+	if (_gradeToExecute > 150 || _gradeToSign > 150)
+		throw Form::GradeTooHighException();
+	else if (_gradeToExecute < 0 || _gradeToSign < 0)
+		throw Form::GradeTooLowException();
+}
 
 Form::Form(const Form &src) : _name(src.getName()), _signed(false),
-	_gradeToSign(src.getGradeToSign()), _gradeToExecute(getGradeToExecute()) {}
+	_gradeToSign(src.getGradeToSign()), _gradeToExecute(getGradeToExecute())
+{
+	if (_gradeToExecute > 150 || _gradeToSign > 150)
+		throw Form::GradeTooHighException();
+	else if (_gradeToExecute < 0 || _gradeToSign < 0)
+		throw Form::GradeTooLowException();
+	*this = src;
+}
 
 Form& Form::operator=(const Form &src)
 {
 	if (this != &src)
-	{
 		_signed = src.isSigned();
-	}
 	return (*this);
 }
 
@@ -55,8 +66,8 @@ void Form::beSigned(Bureaucrat &bureaucrat)
 {
 	if (bureaucrat.getGrade() >= getGradeToSign())
 		throw Form::GradeTooLowException();
-	_signed = true;
-	bureaucrat.signForm(*this);
+	else
+		_signed = true;
 }
 
 std::ostream & operator<<(std::ostream &i, Form const &src)

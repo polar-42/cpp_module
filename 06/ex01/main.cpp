@@ -5,47 +5,33 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: fle-tolg <fle-tolg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/20 12:58:48 by fle-tolg          #+#    #+#             */
-/*   Updated: 2023/05/01 15:38:00 by fle-tolg         ###   ########.fr       */
+/*   Created: 2023/04/25 09:07:29 by fle-tolg          #+#    #+#             */
+/*   Updated: 2023/04/25 10:32:17 by fle-tolg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <Bureaucrat.hpp>
-#include <Form.hpp>
+#include <Serializer.hpp>
 
-int	main(void)
+int	main()
 {
 	{
-		try
-		{
-			Bureaucrat *a = new Bureaucrat("Bill", 50);
-			Form *b = new Form("Form_one", 100, 75);
+		Data* data = new Data();
+		uintptr_t u = Serializer::serialize(data);
 
-			a->signForm(*b);
+		std::cout << "data =\t" << data << std::endl;
+		std::cout << "u =\t0x" << std::hex << u << std::endl;
 
-			delete a;
-			delete b;
-		}
-		catch(const std::exception& e)
-		{
-			std::cerr << e.what() << '\n';
-		}
+		delete data;
 	}
 	std::cout << std::endl;
 	{
-		try
-		{
-			Bureaucrat *a = new Bureaucrat("Bill", 50);
-			Form *b = new Form("Form_two", 45, 75);
+		Data* data = new Data();
+		uintptr_t u = Serializer::serialize(data);
+		Data* cpyData = Serializer::deserialize(u);
 
-			a->signForm(*b);
+		std::cout << "u =\t\t0x" << std::hex << u << std::endl;
+		std::cout << "cpyData =\t" << cpyData << std::endl;
 
-			delete a;
-			delete b;
-		}
-		catch(const std::exception& e)
-		{
-			std::cerr << e.what() << '\n';
-		}
+		delete data;
 	}
 }

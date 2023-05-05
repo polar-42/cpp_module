@@ -6,7 +6,7 @@
 /*   By: fle-tolg <fle-tolg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 15:46:09 by fle-tolg          #+#    #+#             */
-/*   Updated: 2023/05/01 15:17:48 by fle-tolg         ###   ########.fr       */
+/*   Updated: 2023/05/02 15:35:27 by fle-tolg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,5 +61,5 @@ static void createASCIITree(const std::string target)
 		std::cout << target + "_shrubbery" << " cannot be create" << std::endl;
 		return ;
 	}
-	output << "       A \n      l l\n     l   l\n    l     l\n   l       l\n  B         C\n l l         l\nD   E         F\n     l l\n    G   H\n       l l\n      I   J \n";
+	output << "       A \n      l l\n     l   l\n    l     l\n   l       l\n  B         C\n l l         l\nD   E l l  l F\n     l l\n    G   H\n       l l\n      I   J \n";
 }
