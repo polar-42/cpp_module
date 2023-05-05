@@ -6,7 +6,7 @@
 /*   By: fle-tolg <fle-tolg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/29 16:07:02 by fle-tolg          #+#    #+#             */
-/*   Updated: 2023/05/02 16:14:05 by fle-tolg         ###   ########.fr       */
+/*   Updated: 2023/05/05 16:56:17 by fle-tolg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,9 @@
 
 RPN::RPN() : _arg("no_input"), _result(0) {}
 
-RPN::RPN(std::string arg) : _arg(arg), _result(0)
+RPN::RPN(std::string arg) : _arg(arg)
 {
-	_parseArg();
-	_calcResult();
+	_result = _calcResult();
 }
 
 RPN::RPN(const RPN&src) { *this = src; }
@@ -43,136 +42,48 @@ static int isMath(char c)
 	return (0);
 }
 
-static int testDivZero(int i)
+int RPN::_calcResult(void)
 {
-	if (i == 0)
-		throw std::exception();
-	return (1);
-}
-
-void RPN::_calcResult(void)
-{
-	long unsigned int i = 0;
-
-	while (i < _container.size())
+	for (long unsigned int i = 0; i < _arg.size(); i++)
 	{
-		if (isdigit(_container[i]) && i + 1 < _container.size()
-			&& isMath(_container[i + 1]))
+		if (isdigit(_arg[i]))
+			_dequeNum.push_front(_arg[i] - 48);
+		else if (isMath(_arg[i]))
 		{
-			std::cout << _result << " " << _container[i + 1] << "= "
-				<< _container[i] << " = ";
-			if (_container[i + 1] == '-')
-				_result -= (_container[i] - 48);
-			else if (_container[i + 1] == '+')
-				_result += (_container[i] - 48);
-			else if (_container[i + 1] == '*')
-				_result *= (_container[i] - 48);
-			else if (_container[i + 1] == '/' && testDivZero(_container[i] - 48))
-				_result /= (_container[i] - 48);
-			if (i + 2 < _container.size() && _container[i + 2] == '-')
+			if (_dequeNum.size() < 2)
+				throw std::exception();
+			int firstNum = _dequeNum[1];
+			int secondNum = _dequeNum[0];
+			_dequeNum.pop_front();
+			_dequeNum.pop_front();
+			if (_arg[i] == '+')
 			{
-				_result *= -1;
-				i++;
+				firstNum += secondNum;
+				_dequeNum.push_front(firstNum);
 			}
-			i += 2;
-			std::cout << _result << std::endl;
+			else if (_arg[i] == '-')
+			{
+				firstNum -= secondNum;
+				_dequeNum.push_front(firstNum);
+			}
+			else if (_arg[i] == '*')
+			{
+				firstNum *= secondNum;
+				_dequeNum.push_front(firstNum);
+			}
+			else if (_arg[i] == '/')
+			{
+				if (secondNum == 0)
+					throw std::exception();
+				firstNum /= secondNum;
+				_dequeNum.push_front(firstNum);
+			}
 		}
-		else if (i + 1 < _container.size() && i + 2 < _container.size()
-			&& i + 3 < _container.size() && (isdigit(_container[i + 3])
-			|| _container[i + 3] == '+'))
-		{
-			std::cout << _result << " += " << _container[i] << " " << _container[i + 2]
-				<< " " << _container[i + 1];
-			if (_container[i + 2] == '*')
-				_result += (_container[i] - 48) * (_container[i + 1] - 48);
-			else if (_container[i + 2] == '+')
-				_result += (_container[i] - 48) + (_container[i + 1] - 48);
-			else if (_container[i + 2] == '-')
-				_result += (_container[i] - 48) - (_container[i + 1] - 48);
-			else if (_container[i + 2] == '/' && testDivZero(_container[i + 1] - 48))
-				_result += (_container[i] - 48) / (_container[i + 1] - 48);
-			if (_container[i + 3] == '+')
-				i++;
-			i += 3;
-			std::cout << " = " << _result << std::endl;
-		}
-		else if (i + 1 < _container.size() && i + 2 < _container.size()
-			&& i + 3 < _container.size() && _container[i + 3] == '-')
-		{
-			std::cout << _result << " += " << _container[i] << " " << _container[i + 3]
-				<< " " << (_container[i + 1] - 48) * -1 << std::endl;
-			if (_container[i + 3] == '*')
-				_result += (_container[i] - 48) * ((_container[i + 1] - 48) * -1);
-			else if (_container[i + 3] == '+')
-				_result += (_container[i] - 48) + ((_container[i + 1] - 48) * -1);
-			else if (_container[i + 3] == '-')
-				_result -= (_container[i] - 48) - ((_container[i + 1] - 48) * -1);
-			else if (_container[i + 3] == '/' && testDivZero((_container[i + 1] - 48) * -1))
-				_result += (_container[i] - 48) / ((_container[i + 1] - 48) * -1);
-			i += 4;
-		}
-		else if (isdigit(_container[i]) && isdigit(_container[i + 1])
-			&& isMath(_container[i + 2]))
-		{
-			std::cout << _result << " = " << _container[i] << " " << _container[i + 2]
-				<< " " << _container[i + 1] << " = ";
-			if (_container[i + 2] == '-')
-				_result += (_container[i] - 48) - (_container[i + 1] - 48);
-			else if (_container[i + 2] == '+')
-				_result += (_container[i] - 48) + (_container[i + 1] - 48);
-			else if (_container[i + 2] == '*')
-				_result += (_container[i] - 48) * (_container[i + 1] - 48);
-			else if (_container[i + 2] == '/' && testDivZero(_container[i + 1] - 48))
-				_result += (_container[i] - 48) / (_container[i + 1] - 48);
-			i += 2;
-			std::cout << _result << std::endl;
-		}
-		else
-			i++;
+		else if (_arg[i] != ' ')
+			throw std::exception();
 	}
+	return (_dequeNum[0]);
 }
-
-void RPN::_parseArg(void)
-{
-	std::string	tmp = _arg;
-	std::string	tmp2;
-
-	while (tmp.length() > 0)
-	{
-		while (tmp[0] == ' ')
-			tmp.erase(0, 1);
-		tmp2 = strtok((char*)tmp.c_str(), " ");
-		if (tmp2.length() > 1)
-			throw std::exception();
-		_container.push_back(tmp2[0]);
-		tmp.erase(0, tmp2.length() + 1);
-	}
-	long unsigned int i = 0;
-	while (i < _container.size())
-	{
-		if (i == 0 && isdigit(_container[i]) && i + 1 < _container.size()
-			&& isMath(_container[i + 1]))
-			throw std::exception();
-		if (isdigit(_container[i]) && i + 1 < _container.size() && isdigit(_container[i + 1])
-			&& i + 2 < _container.size() && isMath(_container[i + 2])
-			&& i + 3 < _container.size() && isMath(_container[i + 3])
-			&& (i + 4 < _container.size() || i > 0))
-			i += 4;
-		else if (isdigit(_container[i]) && i + 1 < _container.size()
-			&& isdigit(_container[i + 1]) && i + 2 < _container.size()
-			&& isMath(_container[i + 2]))
-			i += 3;
-		else if (isdigit(_container[i]) && i + 1 < _container.size()
-			&& isMath(_container[i + 1]) && i + 2 < _container.size()
-			&& isMath(_container[i + 2]))
-			i += 3;
-		else if (isdigit(_container[i]) && i + 1 < _container.size() && isMath(_container[i + 1]))
-			i += 2;
-		else
-			throw std::exception();
-	}
-}
-
 std::ostream & operator << (std::ostream & i, RPN const &src)
 {
 	i << src.getResult();

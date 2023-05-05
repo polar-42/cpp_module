@@ -6,7 +6,7 @@
 /*   By: fle-tolg <fle-tolg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/29 16:01:49 by fle-tolg          #+#    #+#             */
-/*   Updated: 2023/04/30 13:05:06 by fle-tolg         ###   ########.fr       */
+/*   Updated: 2023/05/05 16:56:03 by fle-tolg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,16 @@
 # include <iostream>
 # include <deque>
 # include <cstring>
+# include <cstdlib>
 
 class RPN
 {
 	private:
 		std::string			_arg;
 		int 				_result;
-		std::deque<char>	_container;
+		std::deque<int>		_dequeNum;
 
-		void	_calcResult();
-		void	_parseArg();
+		int	_calcResult();
 
 	public:
 		RPN();
