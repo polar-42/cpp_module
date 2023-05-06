@@ -6,7 +6,7 @@
 /*   By: fle-tolg <fle-tolg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/30 13:12:52 by fle-tolg          #+#    #+#             */
-/*   Updated: 2023/05/01 15:01:33 by fle-tolg         ###   ########.fr       */
+/*   Updated: 2023/05/05 16:57:02 by fle-tolg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,37 @@ PmergeMe& PmergeMe::operator=(const PmergeMe& src)
 }
 
 PmergeMe::~PmergeMe() {}
+
+//void PmergeMe::_sortVector(void)
+//{
+//	for (long unsigned int i = 0; i < _arg.size(); i++)
+//		_vector.push_back(_arg[i]);
+
+//	std::vector<long int> tmpVector;
+//	std::vector<long int> tmpVector2;
+
+//	for (long unsigned int i = 0; i + 1 < _vector.size(); i += 2)
+//	{
+//		if (i + 1 < _vector.size() && _vector[i] > _vector[i + 1])
+//		{
+//			tmpVector.push_back(_vector[i]);
+//			tmpVector2.push_back(_vector[i + 1]);
+//		}
+//		else
+//		{
+//			tmpVector.push_back(_vector[i + 1]);
+//			tmpVector2.push_back(_vector[i]);
+//		}
+//	}
+//	if (_vector.size() % 2 == 1)
+//		tmpVector.push_back(_vector.back());
+
+//	std::sort(tmpVector.begin(), tmpVector.end());
+//	std::sort(tmpVector2.begin(), tmpVector2.end());
+
+//	std::merge(tmpVector.begin(), tmpVector.end(), tmpVector2.begin(),
+//		tmpVector2.end(), _vector.begin());
+//}
 
 void PmergeMe::_sortVector(void)
 {

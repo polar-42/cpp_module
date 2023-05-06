@@ -6,7 +6,7 @@
 /*   By: fle-tolg <fle-tolg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/29 16:07:02 by fle-tolg          #+#    #+#             */
-/*   Updated: 2023/05/05 16:56:17 by fle-tolg         ###   ########.fr       */
+/*   Updated: 2023/05/05 16:59:33 by fle-tolg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,27 +57,18 @@ int RPN::_calcResult(void)
 			_dequeNum.pop_front();
 			_dequeNum.pop_front();
 			if (_arg[i] == '+')
-			{
 				firstNum += secondNum;
-				_dequeNum.push_front(firstNum);
-			}
 			else if (_arg[i] == '-')
-			{
 				firstNum -= secondNum;
-				_dequeNum.push_front(firstNum);
-			}
 			else if (_arg[i] == '*')
-			{
 				firstNum *= secondNum;
-				_dequeNum.push_front(firstNum);
-			}
 			else if (_arg[i] == '/')
 			{
 				if (secondNum == 0)
 					throw std::exception();
 				firstNum /= secondNum;
-				_dequeNum.push_front(firstNum);
 			}
+			_dequeNum.push_front(firstNum);
 		}
 		else if (_arg[i] != ' ')
 			throw std::exception();
