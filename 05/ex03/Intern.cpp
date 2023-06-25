@@ -6,7 +6,7 @@
 /*   By: fle-tolg <fle-tolg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 15:04:33 by fle-tolg          #+#    #+#             */
-/*   Updated: 2023/05/01 15:35:13 by fle-tolg         ###   ########.fr       */
+/*   Updated: 2023/06/19 12:24:27 by fle-tolg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,13 +35,14 @@ AForm* Intern::makeForm(std::string name, std::string target)
 	std::string	forms[3] = {"presidential pardon", "robotomy request",
 		"shrubbery creation"};
 
-	char c;
+	char c = 0;
 	for (int i = 0; i < 4; i++)
 	{
 		if (name == forms[i])
 		{
 			std::cout << "Intern creates " << name << std::endl;
 			c = forms[i][0];
+			break ;
 		}
 	}
 	switch (c)
@@ -52,7 +53,8 @@ AForm* Intern::makeForm(std::string name, std::string target)
 			return (new RobotomyRequestForm(target));
 		case 's':
 			return (new ShrubberyCreationForm(target));
+		default :
+			std::cout << "The form " << name << " doesn't exist" << std::endl;
 	}
-	std::cout << "The form " << name << " doesn't exist" << std::endl;
 	return (NULL);
 }

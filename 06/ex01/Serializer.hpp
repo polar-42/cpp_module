@@ -6,7 +6,7 @@
 /*   By: fle-tolg <fle-tolg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 09:32:43 by fle-tolg          #+#    #+#             */
-/*   Updated: 2023/04/25 10:26:47 by fle-tolg         ###   ########.fr       */
+/*   Updated: 2023/06/22 11:37:13 by fle-tolg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,10 @@ class Serializer
 	public:
 		static uintptr_t serialize(Data *ptr);
 		static Data* deserialize(uintptr_t raw);
+		~Serializer();
+
+	private:
+		Serializer();
 };
 
 #endif

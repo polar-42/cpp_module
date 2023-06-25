@@ -6,7 +6,7 @@
 /*   By: fle-tolg <fle-tolg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 15:46:09 by fle-tolg          #+#    #+#             */
-/*   Updated: 2023/04/24 14:46:48 by fle-tolg         ###   ########.fr       */
+/*   Updated: 2023/06/19 12:22:29 by fle-tolg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,9 @@ const std::string RobotomyRequestForm::getTarget() const
 
 void RobotomyRequestForm::execute(Bureaucrat const &executor) const
 {
-	if (isSigned() == true && executor.getGrade() > getGradeToExecute())
+	if (isSigned() == false)
+		throw AForm::FormIsNotSigned();
+	else if (executor.getGrade() > getGradeToExecute())
 		throw AForm::GradeTooLowException();
 	else if (isSigned() == true)
 	{

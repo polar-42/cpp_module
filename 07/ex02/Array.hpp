@@ -6,7 +6,7 @@
 /*   By: fle-tolg <fle-tolg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 14:17:37 by fle-tolg          #+#    #+#             */
-/*   Updated: 2023/04/27 10:30:41 by fle-tolg         ###   ########.fr       */
+/*   Updated: 2023/06/23 09:02:18 by fle-tolg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ class Array
 		T& operator [](unsigned int index);
 		~Array();
 
-		unsigned int size() { return (_size); }
+		unsigned int size() const { return (_size); }
 };
 
 #endif

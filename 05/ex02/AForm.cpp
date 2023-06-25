@@ -6,7 +6,7 @@
 /*   By: fle-tolg <fle-tolg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 14:21:29 by fle-tolg          #+#    #+#             */
-/*   Updated: 2023/04/24 14:37:02 by fle-tolg         ###   ########.fr       */
+/*   Updated: 2023/06/20 13:31:53 by fle-tolg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,15 +57,6 @@ void AForm::beSigned(Bureaucrat &bureaucrat)
 		throw AForm::GradeTooLowException();
 	else
 		_signed = true;
-}
-
-void AForm::execute(Bureaucrat const &executor) const
-{
-	if (isSigned() == true && executor.getGrade() > getGradeToExecute())
-		throw AForm::GradeTooLowException();
-	else if (isSigned() == true)
-		std::cout << getName() << " is executed" << std::endl;
-
 }
 
 std::ostream & operator<<(std::ostream &i, AForm const &src)

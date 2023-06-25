@@ -6,7 +6,7 @@
 /*   By: fle-tolg <fle-tolg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 10:33:18 by fle-tolg          #+#    #+#             */
-/*   Updated: 2023/05/01 16:25:42 by fle-tolg         ###   ########.fr       */
+/*   Updated: 2023/06/21 11:00:05 by fle-tolg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,9 @@ class Base
 		static Base*	generate(void);
 		void	identify(Base *p);
 		void	identify(Base &p);
+
+	protected:
+		Base();
 };
 
 #endif

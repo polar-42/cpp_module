@@ -6,7 +6,7 @@
 /*   By: fle-tolg <fle-tolg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 12:58:48 by fle-tolg          #+#    #+#             */
-/*   Updated: 2023/04/24 14:06:53 by fle-tolg         ###   ########.fr       */
+/*   Updated: 2023/06/19 15:47:47 by fle-tolg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	main(void)
 		{
 			Bureaucrat a = Bureaucrat("Bill", 250);
 		}
-		catch (Bureaucrat::GradeTooHighException &e)
+		catch (std::exception &e)
 		{
 			std::cout << e.what() << std::endl;
 		}
@@ -36,9 +36,9 @@ int	main(void)
 	{
 		try
 		{
-			Bureaucrat a = Bureaucrat("Bill", -250);
+			Bureaucrat a = Bureaucrat("Bill", 0);
 		}
-		catch (Bureaucrat::GradeTooLowException &e)
+		catch (std::exception &e)
 		{
 			std::cout << e.what() << std::endl;
 		}
@@ -50,7 +50,7 @@ int	main(void)
 			Bureaucrat a = Bureaucrat("Bill", 50);
 			std::cout << a << std::endl;
 		}
-		catch (Bureaucrat::GradeTooLowException &e)
+		catch (std::exception &e)
 		{
 			std::cout << e.what() << std::endl;
 		}

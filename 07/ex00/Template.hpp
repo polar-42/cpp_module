@@ -6,7 +6,7 @@
 /*   By: fle-tolg <fle-tolg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 12:06:02 by fle-tolg          #+#    #+#             */
-/*   Updated: 2023/04/27 10:10:15 by fle-tolg         ###   ########.fr       */
+/*   Updated: 2023/06/23 08:47:27 by fle-tolg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,17 @@ void swap(T &x, T &y)
 template<typename T>
 T max(T &x, T &y)
 {
-	return ((x > y) ? x : y);
+	if (y >= x)
+		return (y);
+	return (x);
 }
 
 template<typename T>
 T min(T &x, T &y)
 {
-	return ((x > y) ? y : x);
+	if (y <= x)
+		return (y);
+	return (x);
 }
 
 #endif

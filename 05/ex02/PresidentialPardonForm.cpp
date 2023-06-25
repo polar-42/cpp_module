@@ -3,23 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   PresidentialPardonForm.cpp                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fle-tolg  <fle-tolg@student.42angouleme    +#+  +:+       +#+        */
+/*   By: fle-tolg <fle-tolg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 15:46:09 by fle-tolg          #+#    #+#             */
-/*   Updated: 2023/04/18 17:53:26 by fle-tolg         ###   ########.fr       */
+/*   Updated: 2023/06/19 12:13:29 by fle-tolg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <PresidentialPardonForm.hpp>
 
-PresidentialPardonForm::PresidentialPardonForm() : AForm("PresidentialPardonForm", 
+PresidentialPardonForm::PresidentialPardonForm() : AForm("PresidentialPardonForm",
 	25, 5), _target("no_target") {}
-	
-PresidentialPardonForm::PresidentialPardonForm(const std::string target) : 
-	AForm("PresidentialPardonForm", 25, 5), _target(target) {}
-	
 
-PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &src) : 
+PresidentialPardonForm::PresidentialPardonForm(const std::string target) :
+	AForm("PresidentialPardonForm", 25, 5), _target(target) {}
+
+
+PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &src) :
 	AForm("PresidentialPardonForm", 25, 5), _target(src.getTarget()) {}
 
 PresidentialPardonForm& PresidentialPardonForm::operator=(const PresidentialPardonForm &src)
@@ -40,7 +40,9 @@ const std::string PresidentialPardonForm::getTarget() const
 
 void PresidentialPardonForm::execute(Bureaucrat const &executor) const
 {
-	if (isSigned() == true && executor.getGrade() > getGradeToExecute())
+	if (isSigned() == false)
+		throw AForm::FormIsNotSigned();
+	else if (executor.getGrade() > getGradeToExecute())
 		throw AForm::GradeTooLowException();
 	else if (isSigned() == true)
 		std::cout << getTarget() << " has been pardoned by Zaphod Beeblebrox" << std::endl;

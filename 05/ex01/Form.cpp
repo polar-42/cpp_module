@@ -6,7 +6,7 @@
 /*   By: fle-tolg <fle-tolg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 14:21:29 by fle-tolg          #+#    #+#             */
-/*   Updated: 2023/05/01 15:10:04 by fle-tolg         ###   ########.fr       */
+/*   Updated: 2023/06/20 13:30:55 by fle-tolg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,18 +18,18 @@ Form::Form(std::string name, int gradeToSign, int gradeToExecute) : _name(name),
 	_signed(0), _gradeToSign(gradeToSign), _gradeToExecute(gradeToExecute)
 {
 	if (_gradeToExecute > 150 || _gradeToSign > 150)
-		throw Form::GradeTooHighException();
-	else if (_gradeToExecute < 0 || _gradeToSign < 0)
 		throw Form::GradeTooLowException();
+	else if (_gradeToExecute < 1 || _gradeToSign < 1)
+		throw Form::GradeTooHighException();
 }
 
 Form::Form(const Form &src) : _name(src.getName()), _signed(false),
 	_gradeToSign(src.getGradeToSign()), _gradeToExecute(getGradeToExecute())
 {
 	if (_gradeToExecute > 150 || _gradeToSign > 150)
-		throw Form::GradeTooHighException();
-	else if (_gradeToExecute < 0 || _gradeToSign < 0)
 		throw Form::GradeTooLowException();
+	else if (_gradeToExecute < 1 || _gradeToSign < 1)
+		throw Form::GradeTooHighException();
 	*this = src;
 }
 
@@ -64,8 +64,10 @@ bool Form::isSigned() const
 
 void Form::beSigned(Bureaucrat &bureaucrat)
 {
-	if (bureaucrat.getGrade() >= getGradeToSign())
-		throw Form::GradeTooLowException();
+	if (bureaucrat.getGrade() > getGradeToSign())
+		throw Form::GradeTooHighException();
+	else if (_signed == true)
+		throw Form::FormIsAlreadySign();
 	else
 		_signed = true;
 }

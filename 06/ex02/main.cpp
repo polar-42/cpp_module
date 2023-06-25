@@ -6,7 +6,7 @@
 /*   By: fle-tolg <fle-tolg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 10:56:00 by fle-tolg          #+#    #+#             */
-/*   Updated: 2023/05/01 16:36:51 by fle-tolg         ###   ########.fr       */
+/*   Updated: 2023/06/21 11:50:38 by fle-tolg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,32 @@
 
 int	main()
 {
-	Base *base = Base::generate();
+	{
+		Base *base = NULL;
 
-	std::cout << "base is a ";
-	base->identify(base);
+		std::cout << "base is a ";
+		base->identify(base);
+		std::cout << std::endl;
+		if (base)
+			delete base;
+	}
 	std::cout << std::endl;
-	std::cout << "base is a ";
-	base->identify(*base);
-	std::cout << std::endl;
+	{
+		Base *base = Base::generate();
 
-	delete base;
+		std::cout << "base is a ";
+		base->identify(base);
+		std::cout << std::endl;
+		if (base)
+			delete base;
+	}
+	std::cout << std::endl;
+	{
+		Base *base = Base::generate();
+
+		std::cout << "base is a ";
+		base->identify(*base);
+		std::cout << std::endl;
+		delete base;
+	}
 }

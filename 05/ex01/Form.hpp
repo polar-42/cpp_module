@@ -6,7 +6,7 @@
 /*   By: fle-tolg <fle-tolg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 14:06:25 by fle-tolg          #+#    #+#             */
-/*   Updated: 2023/04/24 14:10:09 by fle-tolg         ###   ########.fr       */
+/*   Updated: 2023/06/19 15:54:15 by fle-tolg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,15 @@ class Form
 				virtual const char *what() const throw()
 				{
 					return ("Grade is too low to sign form");
+				}
+		};
+
+		class FormIsAlreadySign : public std::exception
+		{
+			public :
+				virtual const char *what() const throw()
+				{
+					return ("This form is already sign");
 				}
 		};
 };

@@ -6,7 +6,7 @@
 /*   By: fle-tolg <fle-tolg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 13:00:04 by fle-tolg          #+#    #+#             */
-/*   Updated: 2023/04/24 14:38:52 by fle-tolg         ###   ########.fr       */
+/*   Updated: 2023/06/19 16:01:28 by fle-tolg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ Bureaucrat::Bureaucrat() : _name("no_name"), _grade(150) {}
 Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name), _grade(grade)
 {
 	if (grade > 150)
-		throw Bureaucrat::GradeTooHighException();
+		throw Bureaucrat::GradeTooLowException();
 	if (grade < 1)
-			throw Bureaucrat::GradeTooLowException();
+		throw Bureaucrat::GradeTooHighException();
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat &src) : _name(src.getName())
@@ -39,13 +39,15 @@ Bureaucrat::~Bureaucrat() {}
 void	Bureaucrat::operator++()
 {
 	if (_grade + 1 > 150)
-		throw Bureaucrat::GradeTooHighException();
+		throw Bureaucrat::GradeTooLowException();
+	_grade++;
 }
 
 void	Bureaucrat::operator--()
 {
 	if (_grade - 1 < 1)
-		throw Bureaucrat::GradeTooLowException();
+		throw Bureaucrat::GradeTooHighException();
+	_grade--;
 }
 
 std::string Bureaucrat::getName() const
@@ -60,16 +62,19 @@ int Bureaucrat::getGrade() const
 
 void Bureaucrat::signForm(AForm& form)
 {
+	int i = 0;
+
 	try
 	{
 		form.beSigned(*this);
 	}
-	catch (AForm::GradeTooLowException &e)
+	catch (std::exception &e)
 	{
 		std::cout << e.what() << std::endl;
+		i++;
 	}
 
-	if (form.isSigned() == true)
+	if (form.isSigned() == true && i == 0)
 		std::cout << getName() << " signed " << form.getName() << std::endl;
 	if (form.isSigned() == false)
 	{
@@ -86,7 +91,7 @@ void Bureaucrat::executeForm(AForm const &form)
 	{
 		form.execute(*this);
 	}
-	catch (AForm::GradeTooLowException &e)
+	catch (std::exception &e)
 	{
 		std::cout << e.what() << ", " << _name << " cannot execute form" << std::endl;
 		return ;

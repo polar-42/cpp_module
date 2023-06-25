@@ -6,7 +6,7 @@
 /*   By: fle-tolg <fle-tolg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 15:46:09 by fle-tolg          #+#    #+#             */
-/*   Updated: 2023/05/01 15:17:48 by fle-tolg         ###   ########.fr       */
+/*   Updated: 2023/06/19 12:13:44 by fle-tolg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,9 @@ const std::string ShrubberyCreationForm::getTarget() const
 
 void ShrubberyCreationForm::execute(Bureaucrat const &executor) const
 {
-	if (isSigned() == true && executor.getGrade() > getGradeToExecute())
+	if (isSigned() == false)
+		throw AForm::FormIsNotSigned();
+	else if (executor.getGrade() > getGradeToExecute())
 		throw AForm::GradeTooLowException();
 	else if (isSigned() == true)
 	{

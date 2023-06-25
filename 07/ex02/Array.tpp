@@ -6,7 +6,7 @@
 /*   By: fle-tolg <fle-tolg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 10:19:59 by fle-tolg          #+#    #+#             */
-/*   Updated: 2023/04/27 10:27:48 by fle-tolg         ###   ########.fr       */
+/*   Updated: 2023/06/23 09:00:48 by fle-tolg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,9 @@
 template<typename T>
 Array<T>::Array() : _size(0)
 {
-	_arr = new T[0];
+	_arr = new(std::nothrow) T[0];
+	if (!_arr)
+		throw std::bad_alloc();
 }
 
 template<typename T>
@@ -65,7 +67,7 @@ Array<T>& Array<T>::operator=(const Array& src)
 template<typename T>
 T& Array<T>::operator [](unsigned int index)
 {
-	if (index >= _size || index < 0)
+	if (index >= _size)
 		throw std::exception();
 	return (_arr[index]);
 }

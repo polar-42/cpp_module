@@ -6,7 +6,7 @@
 /*   By: fle-tolg <fle-tolg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 10:36:07 by fle-tolg          #+#    #+#             */
-/*   Updated: 2023/05/01 16:36:20 by fle-tolg         ###   ########.fr       */
+/*   Updated: 2023/06/21 11:46:38 by fle-tolg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,24 +15,38 @@
 #include <B.hpp>
 #include <C.hpp>
 
+Base::Base() {}
+
 Base::~Base() {}
 
 Base* Base::generate(void)
 {
 	srand(time(NULL));
-	int r = rand() % 10;
+	int r = rand() % 3;
 
-	if (r >= 7)
+	if (r  == 0)
+	{
+		std::cout << "A is generate" << std::endl;
 		return (new A());
-	else if (r >= 4)
+	}
+	else if (r == 1)
+	{
+		std::cout << "B is generate" << std::endl;
 		return (new B());
-	else
+	}
+	else if (r == 2)
+	{
+		std::cout << "C is generate" << std::endl;
 		return (new C());
+	}
+	return (NULL);
 }
 
 void Base::identify(Base *p)
 {
-	if (this == dynamic_cast<A*>(p))
+	if (!p)
+		std::cout << "NULL";
+	else if (this == dynamic_cast<A*>(p))
 		std::cout << "A";
 	else if (this == dynamic_cast<B*>(p))
 		std::cout << "B";
@@ -44,9 +58,9 @@ void Base::identify(Base &p)
 {
 	if (this == dynamic_cast<A*>(&p))
 		std::cout << "A";
-	else if (dynamic_cast<B*>(&p))
+	else if (this == dynamic_cast<B*>(&p))
 		std::cout << "B";
-	else if (dynamic_cast<C*>(&p))
+	else if (this == dynamic_cast<C*>(&p))
 		std::cout << "C";
 }
 

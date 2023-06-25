@@ -6,11 +6,16 @@
 /*   By: fle-tolg <fle-tolg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 09:35:27 by fle-tolg          #+#    #+#             */
-/*   Updated: 2023/04/25 10:18:00 by fle-tolg         ###   ########.fr       */
+/*   Updated: 2023/06/21 10:58:41 by fle-tolg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <Serializer.hpp>
+
+Serializer::Serializer() {}
+
+Serializer::~Serializer() {}
+
 
 uintptr_t Serializer::serialize(Data *ptr)
 {
