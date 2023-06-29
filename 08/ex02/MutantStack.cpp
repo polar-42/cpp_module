@@ -1,29 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   easyfind.hpp                                       :+:      :+:    :+:   */
+/*   MutantStack.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fle-tolg <fle-tolg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/27 10:39:36 by fle-tolg          #+#    #+#             */
-/*   Updated: 2023/06/24 11:22:31 by fle-tolg         ###   ########.fr       */
+/*   Created: 2023/06/24 12:06:34 by fle-tolg          #+#    #+#             */
+/*   Updated: 2023/06/25 09:31:42 by fle-tolg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef EASYFIND_HPP
-# define EASYFIND_HPP
+#include <MutantStack.hpp>
 
-#include <iostream>
-#include <vector>
-#include <exception>
-#include <algorithm>
 
-template<typename T>
-bool easyfind(T &t, int i)
+MutantStack::MutantStack() {}
+
+MutantStack::MutantStack(const MutantStack& src) : std::stack<T>()
 {
-	if (std::count(t.begin(), t.end(), i) > 0)
-		return (true);
-	throw std::exception();
+	*this = src;
 }
 
-#endif
+MutantStack::MutantStack& operator=(const MutantStack& src)
+{
+	if (this != &src)
+	{
+		this->c = src.c;
+	}
+	return (*this);
+}
+
+MutantStack::~MutantStack() {}
+
+MutantStack::iterator begin()
+{
+	return this->c.begin();
+}
+
+MutantStack::iterator end()
+{
+	return this->c.end();
+}

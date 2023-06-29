@@ -19,6 +19,7 @@ int	main()
 	for (int i = 0; i < 50; i++)
 		myVector.push_back(i);
 
+
 	try
 	{
 		std::cout << std::boolalpha << "try to find 25 = " << easyfind(myVector, 25)
