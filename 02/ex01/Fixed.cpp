@@ -6,7 +6,7 @@
 /*   By: fle-tolg <fle-tolg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 13:42:37 by fle-tolg          #+#    #+#             */
-/*   Updated: 2023/02/23 14:38:47 by fle-tolg         ###   ########.fr       */
+/*   Updated: 2023/03/18 14:13:48 by fle-tolg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,17 +30,17 @@ Fixed::Fixed(const float i)
 	this->_fixedPoint = roundf(i * (1 << this->_cFixedPoint));
 }
 
-Fixed::Fixed(const Fixed &fixed)
+Fixed::Fixed(const Fixed &src)
 {
 	std::cout << "Copy constructor called" << std::endl;
-	this->_fixedPoint = fixed.getRawBits();
+	this->_fixedPoint = src.getRawBits();
 }
 
-Fixed & Fixed::operator=(const Fixed& fixed)
+Fixed & Fixed::operator=(const Fixed& src)
 {
 	std::cout << "Copy assignment operator called" << std::endl;
-	if (this != &fixed)
-		this->_fixedPoint = fixed.getRawBits();
+	if (this != &src)
+		this->_fixedPoint = src.getRawBits();
 	return (*this);
 }
 
@@ -69,8 +69,8 @@ int	Fixed::toInt( void ) const
 	return (this->getRawBits() >> this->_cFixedPoint);
 }
 
-std::ostream & operator << (std::ostream & i, Fixed const &fixed)
+std::ostream & operator << (std::ostream & i, Fixed const &src)
 {
-	i << fixed.toFloat();
+	i << src.toFloat();
 	return (i);
 }

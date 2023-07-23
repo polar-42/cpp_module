@@ -6,7 +6,7 @@
 /*   By: fle-tolg <fle-tolg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/09 15:30:28 by fle-tolg          #+#    #+#             */
-/*   Updated: 2023/06/21 14:27:50 by fle-tolg         ###   ########.fr       */
+/*   Updated: 2023/04/14 13:31:17 by fle-tolg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ Character& Character::operator=(const Character& src)
 		for (int i = 0; i < 4; i++)
 		{
 			if (_inventory[i])
-				delete _inventory[i];
+					delete _inventory[i];
 			if (src._inventory[i])
 				_inventory[i] = src._inventory[i]->clone();
 			else

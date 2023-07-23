@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   DiamondTrap.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fle-tolg  <fle-tolg@student.42angouleme    +#+  +:+       +#+        */
+/*   By: fle-tolg <fle-tolg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/26 12:46:57 by fle-tolg          #+#    #+#             */
-/*   Updated: 2023/02/27 12:39:21 by fle-tolg         ###   ########.fr       */
+/*   Updated: 2023/03/18 16:23:00 by fle-tolg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,24 +19,24 @@ DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name), ScavTrap(name), Fra
 	this->ClapTrap::_name += "_clap_name";
 }
 
-DiamondTrap::DiamondTrap(const DiamondTrap & diamondTrap) : ClapTrap(diamondTrap._name), ScavTrap(diamondTrap._name), FragTrap(diamondTrap._name)
+DiamondTrap::DiamondTrap(const DiamondTrap & src) : ClapTrap(src._name), ScavTrap(src._name), FragTrap(src._name)
 {
-	std::cout << "DiamondTrap copy constuctors is called by" << diamondTrap._name << std::endl;
-	this->_name = diamondTrap._name;
-	this->_hitPoint = diamondTrap._hitPoint;
-	this->_attackDamage = diamondTrap._attackDamage;
-	this->_energyPoint = diamondTrap._energyPoint;
+	std::cout << "DiamondTrap copy constuctors is called by" << src._name << std::endl;
+	setName(src._name);
+	setHitPoint(src._hitPoint);
+	setAttackDamage(src._attackDamage);
+	setEnergyPoint(src._energyPoint);
 }
 
-DiamondTrap & DiamondTrap::operator=(const DiamondTrap & diamondTrap)
+DiamondTrap & DiamondTrap::operator=(const DiamondTrap & src)
 {
-	std::cout << "DiamondTrap copy assignment is called by" << diamondTrap._name << std::endl;
-	if (this != &diamondTrap)
+	std::cout << "DiamondTrap copy assignment is called by" << src._name << std::endl;
+	if (this != &src)
 	{
-		this->_name = diamondTrap._name;
-		this->_hitPoint = diamondTrap._hitPoint;
-		this->_attackDamage = diamondTrap._attackDamage;
-		this->_energyPoint = diamondTrap._energyPoint;
+		setName(src._name);
+		setHitPoint(src._hitPoint);
+		setAttackDamage(src._attackDamage);
+		setEnergyPoint(src._energyPoint);
 	}
 	return (*this);
 }

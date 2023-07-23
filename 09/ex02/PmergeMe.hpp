@@ -6,31 +6,30 @@
 /*   By: fle-tolg <fle-tolg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/30 13:06:28 by fle-tolg          #+#    #+#             */
-/*   Updated: 2023/05/06 10:55:05 by fle-tolg         ###   ########.fr       */
+/*   Updated: 2023/06/27 09:37:15 by fle-tolg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PMERGEME_HPP
 # define PMERGEME_HPP
 
-# include <iostream>
-# include <ostream>
-# include <list>
-# include <vector>
-# include <algorithm>
+#include <iostream>
+#include <deque>
+#include <vector>
+#include <algorithm>
+#include <sys/time.h>
+#include <ctime>
 
 class PmergeMe
 {
 	private:
-		std::vector<int>	_arg;
-		std::vector<int>	_vector;
-		std::list<int>		_list;
-		unsigned long int 		_timeVector;
-		unsigned long int 		_timeList;
+		std::vector<long int>	_arg;
+		std::vector<long int>	_vector;
+		std::deque<long int>	_deque;
+		clock_t 		_timeVector;
+		clock_t 		_timeDeque;
 
 		void _sort(void);
-		void _sortVector(void);
-		void _sortList(void);
 
 	public:
 		PmergeMe();

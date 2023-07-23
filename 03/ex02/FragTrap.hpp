@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fle-tolg  <fle-tolg@student.42angouleme    +#+  +:+       +#+        */
+/*   By: fle-tolg <fle-tolg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/26 10:50:56 by fle-tolg          #+#    #+#             */
-/*   Updated: 2023/02/27 12:57:09 by fle-tolg         ###   ########.fr       */
+/*   Updated: 2023/03/18 16:03:45 by fle-tolg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@
 class FragTrap : public ClapTrap
 {
 	private:
-		/* data */
+
 	public:
 		FragTrap(std::string name);
-		FragTrap(const FragTrap & fragTrap);
-		FragTrap & operator=(const FragTrap & fragTrap);
+		FragTrap(const FragTrap & src);
+		FragTrap & operator=(const FragTrap & src);
 		~FragTrap();
 
 		void	highFivesGuys(void);

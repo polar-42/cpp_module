@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Point.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fle-tolg  <fle-tolg@student.42angouleme    +#+  +:+       +#+        */
+/*   By: fle-tolg <fle-tolg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 12:43:58 by fle-tolg          #+#    #+#             */
-/*   Updated: 2023/02/26 09:49:00 by fle-tolg         ###   ########.fr       */
+/*   Updated: 2023/03/11 12:29:36 by fle-tolg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ Point::Point(const Point &point) : _x( point._x ), _y( point._y )
 {
 }
 
-Point & Point::operator= (const Point &point) // PAS BON !!
+Point & Point::operator= (const Point &point)
 {
 	if (this != &point)
 	{

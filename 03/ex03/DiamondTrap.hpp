@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   DiamondTrap.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fle-tolg  <fle-tolg@student.42angouleme    +#+  +:+       +#+        */
+/*   By: fle-tolg <fle-tolg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/26 12:44:42 by fle-tolg          #+#    #+#             */
-/*   Updated: 2023/02/27 12:59:16 by fle-tolg         ###   ########.fr       */
+/*   Updated: 2023/03/18 16:25:23 by fle-tolg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,11 @@ class DiamondTrap : public ScavTrap, public FragTrap
 		using FragTrap::_hitPoint;
 		using FragTrap::_attackDamage;
 		using ScavTrap::_energyPoint;
-	
+
 	public:
 		DiamondTrap(std::string name);
-		DiamondTrap(const DiamondTrap &dimondTrap);
-		DiamondTrap & operator= (const DiamondTrap & dimondTrap);
+		DiamondTrap(const DiamondTrap &src);
+		DiamondTrap & operator= (const DiamondTrap & src);
 		~DiamondTrap();
 
 		using ScavTrap::attack;

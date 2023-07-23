@@ -6,7 +6,7 @@
 /*   By: fle-tolg <fle-tolg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 13:40:21 by fle-tolg          #+#    #+#             */
-/*   Updated: 2023/02/25 12:00:10 by fle-tolg         ###   ########.fr       */
+/*   Updated: 2023/03/18 14:14:50 by fle-tolg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,22 +28,22 @@ class Fixed
 		Fixed(const int i);
 		Fixed(const float f);
 		Fixed(const Fixed &fixed);
-		Fixed& operator= (const Fixed &fixed);
+		Fixed& operator= (const Fixed &src);
 		~Fixed();
 
 		/*Comparaison operator*/
-		bool operator> (const Fixed &fixed);
-		bool operator< (const Fixed &fixed);
-		bool operator>= (const Fixed &fixed);
-		bool operator<= (const Fixed &fixed);
-		bool operator== (const Fixed &fixed);
-		bool operator!= (const Fixed &fixed);
+		bool operator> (const Fixed &src);
+		bool operator< (const Fixed &src);
+		bool operator>= (const Fixed &src);
+		bool operator<= (const Fixed &src);
+		bool operator== (const Fixed &src);
+		bool operator!= (const Fixed &src);
 
 		/*Arithmetic operators*/
-		float operator+ (const Fixed &fixed);
-		float operator- (const Fixed &fixed);
-		float operator* (const Fixed &fixed);
-		float operator/ (const Fixed &fixed);
+		float operator+ (const Fixed &src);
+		float operator- (const Fixed &src);
+		float operator* (const Fixed &src);
+		float operator/ (const Fixed &src);
 
 		/*Increment | decrement operators*/
 		Fixed& operator++ ();
@@ -63,6 +63,6 @@ class Fixed
 };
 
 /*Overload insertion*/
-std::ostream & operator<<(std::ostream &i, Fixed const &fixed);
+std::ostream & operator<<(std::ostream &i, Fixed const &src);
 
 #endif

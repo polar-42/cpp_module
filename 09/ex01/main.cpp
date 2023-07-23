@@ -6,7 +6,7 @@
 /*   By: fle-tolg <fle-tolg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/29 16:31:11 by fle-tolg          #+#    #+#             */
-/*   Updated: 2023/04/30 13:04:59 by fle-tolg         ###   ########.fr       */
+/*   Updated: 2023/06/25 15:23:12 by fle-tolg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,10 @@ int	main(int argc, char **argv)
 		RPN rpn = RPN(argv[1]);
 		std::cout << rpn << std::endl;
 	}
-	catch(const std::exception& e)
+	catch (std::exception& e)
 	{
 		std::cerr << "Error" << std::endl;
 		return (1);
 	}
-
+	return (0);
 }

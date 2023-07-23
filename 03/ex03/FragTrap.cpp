@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   FragTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fle-tolg  <fle-tolg@student.42angouleme    +#+  +:+       +#+        */
+/*   By: fle-tolg <fle-tolg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/26 10:51:44 by fle-tolg          #+#    #+#             */
-/*   Updated: 2023/02/26 13:40:11 by fle-tolg         ###   ########.fr       */
+/*   Updated: 2023/03/18 16:25:00 by fle-tolg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,39 +15,40 @@
 FragTrap::FragTrap(std::string name) : ClapTrap(name)
 {
 	std::cout << "FrapTrap constuctors is called by " << name << std::endl;
-	this->_hitPoint = 100;
-	this->_energyPoint = 30;
-	this->_attackDamage = 100;
+	setHitPoint(100);
+	setEnergyPoint(100);
+	setAttackDamage(30);
 }
 
-FragTrap::FragTrap(const FragTrap & fragTrap) : ClapTrap(fragTrap._name)
+FragTrap::FragTrap(const FragTrap & src) : ClapTrap(src._name)
 {
-	std::cout << "FrapTrap copy constuctors is called by" << fragTrap._name << std::endl;
-	this->_name = fragTrap._name;
-	this->_hitPoint = fragTrap._hitPoint;
-	this->_attackDamage = fragTrap._attackDamage;
-	this->_energyPoint = fragTrap._energyPoint;
+	std::cout << "FrapTrap copy constuctors is called by" << src._name << std::endl;
+	setName(src._name);
+	setHitPoint(src._hitPoint);
+	setAttackDamage(src._attackDamage);
+	setEnergyPoint(src._energyPoint);
 }
 
-FragTrap & FragTrap::operator=(const FragTrap & fragTrap)
+FragTrap & FragTrap::operator=(const FragTrap & src)
 {
-	std::cout << "FrapTrap copy assignment is called by" << fragTrap._name << std::endl;
-	if (this != &fragTrap)
+	std::cout << "FrapTrap copy assignment is called by" << src._name << std::endl;
+	if (this != &src)
 	{
-		this->_name = fragTrap._name;
-		this->_hitPoint = fragTrap._hitPoint;
-		this->_attackDamage = fragTrap._attackDamage;
-		this->_energyPoint = fragTrap._energyPoint;
+		setName(src._name);
+		setHitPoint(src._hitPoint);
+		setAttackDamage(src._attackDamage);
+		setEnergyPoint(src._energyPoint);
 	}
 	return (*this);
 }
 
 FragTrap::~FragTrap()
 {
-	std::cout << "FrapTrap destructors is called by " << this->_name << std::endl;
+	std::cout << "FrapTrap destructors is called by " << getName() << std::endl;
 }
 
 void	FragTrap::highFivesGuys()
 {
-	std::cout << "FragTrap " << this->getName() << " is requesting a high fives" << std::endl;
+	std::cout << "FragTrap " << getName() << " is requesting a positive high fives"
+		<< std::endl;
 }

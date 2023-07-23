@@ -6,7 +6,7 @@
 /*   By: fle-tolg <fle-tolg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 13:40:21 by fle-tolg          #+#    #+#             */
-/*   Updated: 2023/02/19 11:46:56 by fle-tolg         ###   ########.fr       */
+/*   Updated: 2023/03/18 14:08:49 by fle-tolg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ class Fixed
 
 	public:
 		Fixed();
-		Fixed(const Fixed &fixed);
-		Fixed& operator= (const Fixed &fixed);
+		Fixed(const Fixed &src);
+		Fixed& operator= (const Fixed &src);
 		~Fixed();
 		int	getRawBits( void ) const;
 		void	setRawBits( int const raw );

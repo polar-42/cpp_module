@@ -6,7 +6,7 @@
 /*   By: fle-tolg <fle-tolg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 13:43:24 by fle-tolg          #+#    #+#             */
-/*   Updated: 2023/02/25 11:58:39 by fle-tolg         ###   ########.fr       */
+/*   Updated: 2023/03/18 14:38:11 by fle-tolg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,8 +56,15 @@ int main(void)
 		std::cout << "\tb = \t" << b << std::endl;
 
 		std::cout << std::endl;
-		std::cout << "Fixed::min(a, b) = " << Fixed::min( a, b ) << std::endl;
-		std::cout << "Fixed::max(a, b) = " << Fixed::max( a, b ) << std::endl;
+	}
+	{
+		Fixed const a(4.5f);
+		Fixed const b(10.5f);
+		Fixed c(100);
+
+		std::cout << "Fixed::min(4.5, 10.5) = " << Fixed::min( a, b ) << std::endl;
+		std::cout << "Fixed::max(4.5, 10.5) = " << Fixed::max( a, b ) << std::endl;
+		std::cout << "Fixed::min(4.5, 100) = " << Fixed::max( a, c ) << std::endl;
 	}
 	return 0;
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScavTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fle-tolg  <fle-tolg@student.42angouleme    +#+  +:+       +#+        */
+/*   By: fle-tolg <fle-tolg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/26 10:02:59 by fle-tolg          #+#    #+#             */
-/*   Updated: 2023/02/26 10:47:02 by fle-tolg         ###   ########.fr       */
+/*   Updated: 2023/03/18 15:59:53 by fle-tolg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,36 +16,36 @@
 ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 {
 	std::cout << "ScavTrap constructors is called by " << this->getName() << std::endl;
-	this->_hitPoint = 100;
-	this->_energyPoint = 50;
-	this->_attackDamage = 20;
+	setHitPoint(100);
+	setEnergyPoint(50);
+	setAttackDamage(20);
 }
 
-ScavTrap::ScavTrap(const ScavTrap &scavTrap) : ClapTrap(scavTrap._name)
+ScavTrap::ScavTrap(const ScavTrap &src) : ClapTrap(src._name)
 {
-	std::cout << "ScavTrap copy constructors is called by " << this->getName() << std::endl;
-	this->_name = scavTrap._name;
-	this->_attackDamage = scavTrap._attackDamage;
-	this->_energyPoint = scavTrap._energyPoint;
-	this->_hitPoint = scavTrap._hitPoint;
+	std::cout << "ScavTrap copy constructors is called by " << getName() << std::endl;
+	setName(src._name);
+	setAttackDamage(src._attackDamage);
+	setEnergyPoint(src._energyPoint);
+	setHitPoint(src._hitPoint);
 }
 
-ScavTrap& ScavTrap::operator=(const ScavTrap &scavTrap)
+ScavTrap& ScavTrap::operator=(const ScavTrap &src)
 {
-	std::cout << "ScavTrap copy assignement is called by " << this->getName() << std::endl;
-	if (this != &scavTrap)
+	std::cout << "ScavTrap copy assignement is called by " << getName() << std::endl;
+	if (this != &src)
 	{
-		this->_name = scavTrap._name;
-		this->_attackDamage = scavTrap._attackDamage;
-		this->_energyPoint = scavTrap._energyPoint;
-		this->_hitPoint = scavTrap._hitPoint;
+		setName(src._name);
+		setAttackDamage(src._attackDamage);
+		setEnergyPoint(src._energyPoint);
+		setHitPoint(src._hitPoint);
 	}
 	return (*this);
 }
 
 ScavTrap::~ScavTrap()
 {
-	std::cout << "ScavTrap destructors is called by " << this->getName() << std::endl;
+	std::cout << "ScavTrap destructors is called by " << getName() << std::endl;
 }
 
 void	ScavTrap::attack(const std::string target)
@@ -53,7 +53,7 @@ void	ScavTrap::attack(const std::string target)
 	if (this->getEnergyPoint() >= 1)
 	{
 		std::cout << "ScavTrap " << getName() << " attacks "
-			<< target << " causing " << getAttatckDamage() << " damages" << std::endl;
+			<< target << " causing " << getAttackDamage() << " damages" << std::endl;
 		setEnergyPoint(getEnergyPoint() - 1);
 	}
 	else
@@ -63,5 +63,5 @@ void	ScavTrap::attack(const std::string target)
 
 void	ScavTrap::guardGate()
 {
-	std::cout << "ScavTrap " << this->getName() << " is in guard gate mode" << std::endl;
+	std::cout << "ScavTrap " << getName() << " is in guard gate mode" << std::endl;
 }

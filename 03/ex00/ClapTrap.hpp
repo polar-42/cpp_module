@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fle-tolg  <fle-tolg@student.42angouleme    +#+  +:+       +#+        */
+/*   By: fle-tolg <fle-tolg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 13:49:23 by fle-tolg          #+#    #+#             */
-/*   Updated: 2023/02/26 09:53:16 by fle-tolg         ###   ########.fr       */
+/*   Updated: 2023/03/18 15:08:10 by fle-tolg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,19 +26,19 @@ class ClapTrap
 	public:
 		/*Constructors / Destructors*/
 		ClapTrap(std::string name);
-		ClapTrap(const ClapTrap &clapTrap);
-		ClapTrap& operator= (const ClapTrap &clapTrap);
+		ClapTrap(const ClapTrap &src);
+		ClapTrap& operator= (const ClapTrap &src);
 		~ClapTrap();
 
 		/*Getters / Setters*/
-		std::string		getName();
-		unsigned int	getHitPoint();
-		unsigned int	getEnergyPoint();
-		unsigned int	getAttatckDamage();
+		std::string		getName() const;
+		unsigned int	getHitPoint() const;
+		unsigned int	getEnergyPoint() const;
+		unsigned int	getAttackDamage() const;
 		void			setName(std::string name);
 		void			setHitPoint(unsigned int amount);
 		void			setEnergyPoint(unsigned int amount);
-		void			setAttatckDamage(unsigned int amount);
+		void			setAttackDamage(unsigned int amount);
 
 		/*Functions*/
 		void	attack(const std::string& target);
